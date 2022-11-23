@@ -1035,7 +1035,7 @@ func TestGetCollectionStats(t *testing.T) {
 
 func TestGetCollectionLogs(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
-		assert.Equal(t, "/atomicassets/v1/collection/futuredoge11/logs", req.URL.String())
+		assert.Equal(t, "/atomicassets/v1/collection/futuredoge11/logs?limit=100&order=asc&page=1", req.URL.String())
 
 		payload := `{
 			"success": true,
@@ -1110,7 +1110,7 @@ func TestGetCollectionLogs(t *testing.T) {
 
 	client := New(srv.URL)
 
-	res, err := client.GetCollectionLogs("futuredoge11")
+	res, err := client.GetCollectionLogs("futuredoge11", CollectionLogsRequestParams{Page: 1, Limit: 100, Order: SortAscending})
 
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)

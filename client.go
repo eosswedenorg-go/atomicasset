@@ -193,10 +193,10 @@ func (c *Client) GetCollectionStats(name string) (CollectionStatsResponse, error
 }
 
 // GetCollectionStats fetches "/atomicassets/v1/collection/<name>/stats" from API
-func (c *Client) GetCollectionLogs(name string) (CollectionLogsResponse, error) {
+func (c *Client) GetCollectionLogs(name string, params CollectionLogsRequestParams) (CollectionLogsResponse, error) {
 	var resp CollectionLogsResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/collection/"+name+"/logs", nil)
+	r, err := c.send("GET", "/atomicassets/v1/collection/"+name+"/logs", params)
 	if err == nil {
 
 		// Set HTTPStatusCode

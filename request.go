@@ -95,3 +95,11 @@ type CollectionsRequestParams struct {
 	Order             SortOrder            `qs:"order,omitempty"`
 	Sort              CollectionSortColumn `qs:"sort,omitempty"`
 }
+
+type CollectionLogsRequestParams struct {
+	Page            int       `qs:"page,omitempty"`
+	Limit           int       `qs:"limit,omitempty"`
+	Order           SortOrder `qs:"order,omitempty"`
+	ActionBlacklist string    `qs:"action_blacklist,omitempty"`
+	ActionWhitelist string    `qs:"action_whitelist,omitempty"`
+}
