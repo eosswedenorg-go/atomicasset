@@ -594,6 +594,7 @@ func TestGetAssetLog(t *testing.T) {
 	expected := []Log{
 		{
 			ID:   "41007120919",
+			TxID: "4bac45fbb2fd4d5ee434ef0c682683834cec17711d3ab1d0fd44023de5c66ec9",
 			Name: "logmint",
 			Data: map[string]interface{}{
 				"new_asset_owner":   "farmersworld",

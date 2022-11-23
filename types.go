@@ -72,6 +72,7 @@ type Token struct {
 
 type Log struct {
 	ID             string                 `json:"log_id"`
+	TxID           string                 `json:"txid"`
 	Name           string                 `json:"name"`
 	Data           map[string]interface{} `json:"data"`
 	CreatedAtBlock string                 `json:"created_at_block"`
