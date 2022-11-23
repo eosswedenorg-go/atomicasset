@@ -56,3 +56,10 @@ type SalesResponse struct {
 	APIResponse
 	Data []AssetSale
 }
+
+// Collections
+
+type CollectionsResponse struct {
+	APIResponse
+	Data []Collection
+}

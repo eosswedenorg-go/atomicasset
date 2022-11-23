@@ -143,3 +143,19 @@ func (c *Client) GetAssetSales(assetID string, params AssetSalesRequestParams) (
 	}
 	return sales, err
 }
+
+// GetCollections fetches "/atomicassets/v1/collections" from API
+func (c *Client) GetCollections(params CollectionsRequestParams) (CollectionsResponse, error) {
+	var resp CollectionsResponse
+
+	r, err := c.send("GET", "/atomicassets/v1/collections", params)
+	if err == nil {
+
+		// Set HTTPStatusCode
+		resp.HTTPStatusCode = r.StatusCode
+
+		// Parse json
+		err = r.Unmarshal(&resp)
+	}
+	return resp, err
+}

@@ -792,3 +792,127 @@ func TestGetAssetSaleFilterBuyer(t *testing.T) {
 
 	assert.Equal(t, expected, res.Data)
 }
+
+func TestGetCollections(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+		assert.Equal(t, "/atomicassets/v1/collections?limit=2&order=desc&page=1", req.URL.String())
+
+		payload := `{
+			"success": true,
+			"data": [
+			  {
+				"contract": "atomicassets",
+				"collection_name": "itabettysart",
+				"name": "Play Gruond",
+				"img": "QmbKHBLk9VTHfLhxy7LJEFUjEBJLB7gGSaBL2UeSRn6oMA",
+				"author": "gma3a.c.wam",
+				"allow_notify": true,
+				"authorized_accounts": [
+				  "gma3a.c.wam"
+				],
+				"notify_accounts": [],
+				"market_fee": 0.05,
+				"data": {
+				  "img": "QmbKHBLk9VTHfLhxy7LJEFUjEBJLB7gGSaBL2UeSRn6oMA",
+				  "url": "https://swite.com/bettysart",
+				  "name": "Play Gruond",
+				  "images": "{\"banner_1920x500\":\"QmXGQBZKXH9p6qjJy7pBnCcNcue5fWZgLThj63Q9cekAim\",\"logo_512x512\":\"QmZxH22w2FVTnE8iZfTFqLdRqD8Y5SLZhH8TQDn8TFB2tV\"}",
+				  "socials": "{\"twitter\":\"\",\"medium\":\"\",\"facebook\":\"\",\"github\":\"\",\"discord\":\"\",\"youtube\":\"\",\"telegram\":\"\"}",
+				  "description": "real hand-made and digitised works . Italian artist decorator",
+				  "creator_info": "{\"country\":\"IT\",\"address\":\"\",\"city\":\"Limite Sull'Arno (FI)\",\"zip\":\"50050\",\"company\":\"Elisabetta Rosa\",\"name\":\"Elisabetta Rosa\",\"registration_number\":\"\"}"
+				},
+				"created_at_time": "1669204520000",
+				"created_at_block": "215481247"
+			  },
+			  {
+				"contract": "atomicassets",
+				"collection_name": "pinoydigiart",
+				"name": "Filipino Digital Arts",
+				"img": "QmbukpNarUzBPfTsWsLNQzKhiowviTBenQS9YgdV8nqtj7",
+				"author": "utjsk.wam",
+				"allow_notify": true,
+				"authorized_accounts": [
+				  "utjsk.wam"
+				],
+				"notify_accounts": [],
+				"market_fee": 0.05,
+				"data": {
+				  "img": "QmbukpNarUzBPfTsWsLNQzKhiowviTBenQS9YgdV8nqtj7",
+				  "url": "https://pinoydigiart.entriprenyur.com/",
+				  "name": "Filipino Digital Arts",
+				  "images": "{\"banner_1920x500\":\"QmQjStJgicWHLA7fLNVFKy1fTVGTgQCEwrhYr5WWr4LXrR\",\"logo_512x512\":\"QmbukpNarUzBPfTsWsLNQzKhiowviTBenQS9YgdV8nqtj7\"}",
+				  "socials": "{\"twitter\":\"https://twitter.com/uplandcitizen\",\"medium\":\"\",\"facebook\":\"\",\"github\":\"\",\"discord\":\"\",\"youtube\":\"\",\"telegram\":\"\"}",
+				  "description": "The Filipino Digital Arts collective showcases the best works of Pinoy digital artists. You can view our gallery on Pinoy Digital Arts website.",
+				  "creator_info": "{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}"
+				},
+				"created_at_time": "1669190667500",
+				"created_at_block": "215453568"
+			  }
+			],
+			"query_time": 1355367264400
+		  }`
+
+		res.Header().Add("Content-type", "application/json; charset=utf-8")
+		res.Write([]byte(payload))
+	}))
+
+	client := New(srv.URL)
+
+	res, err := client.GetCollections(CollectionsRequestParams{Page: 1, Limit: 2, Order: SortDescending})
+
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPStatusCode)
+	assert.True(t, res.Success)
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+
+	expected := []Collection{
+		{
+			Name:           "Play Gruond",
+			CollectionName: "itabettysart",
+			Contract:       "atomicassets",
+			Author:         "gma3a.c.wam",
+			AuthorizedAccounts: []string{
+				"gma3a.c.wam",
+			},
+			AllowNotify:    true,
+			NotifyAccounts: []string{},
+			MarketFee:      0.05,
+			Data: map[string]interface{}{
+				"img":          "QmbKHBLk9VTHfLhxy7LJEFUjEBJLB7gGSaBL2UeSRn6oMA",
+				"url":          "https://swite.com/bettysart",
+				"name":         "Play Gruond",
+				"images":       "{\"banner_1920x500\":\"QmXGQBZKXH9p6qjJy7pBnCcNcue5fWZgLThj63Q9cekAim\",\"logo_512x512\":\"QmZxH22w2FVTnE8iZfTFqLdRqD8Y5SLZhH8TQDn8TFB2tV\"}",
+				"socials":      "{\"twitter\":\"\",\"medium\":\"\",\"facebook\":\"\",\"github\":\"\",\"discord\":\"\",\"youtube\":\"\",\"telegram\":\"\"}",
+				"description":  "real hand-made and digitised works . Italian artist decorator",
+				"creator_info": "{\"country\":\"IT\",\"address\":\"\",\"city\":\"Limite Sull'Arno (FI)\",\"zip\":\"50050\",\"company\":\"Elisabetta Rosa\",\"name\":\"Elisabetta Rosa\",\"registration_number\":\"\"}",
+			},
+			CreatedAtBlock: "215481247",
+			CreatedAtTime:  UnixTime(1669204520000),
+		},
+		{
+			Name:           "Filipino Digital Arts",
+			CollectionName: "pinoydigiart",
+			Contract:       "atomicassets",
+			Author:         "utjsk.wam",
+			AuthorizedAccounts: []string{
+				"utjsk.wam",
+			},
+			AllowNotify:    true,
+			NotifyAccounts: []string{},
+			MarketFee:      0.05,
+			Data: map[string]interface{}{
+				"img":          "QmbukpNarUzBPfTsWsLNQzKhiowviTBenQS9YgdV8nqtj7",
+				"url":          "https://pinoydigiart.entriprenyur.com/",
+				"name":         "Filipino Digital Arts",
+				"images":       "{\"banner_1920x500\":\"QmQjStJgicWHLA7fLNVFKy1fTVGTgQCEwrhYr5WWr4LXrR\",\"logo_512x512\":\"QmbukpNarUzBPfTsWsLNQzKhiowviTBenQS9YgdV8nqtj7\"}",
+				"socials":      "{\"twitter\":\"https://twitter.com/uplandcitizen\",\"medium\":\"\",\"facebook\":\"\",\"github\":\"\",\"discord\":\"\",\"youtube\":\"\",\"telegram\":\"\"}",
+				"description":  "The Filipino Digital Arts collective showcases the best works of Pinoy digital artists. You can view our gallery on Pinoy Digital Arts website.",
+				"creator_info": "{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}",
+			},
+			CreatedAtBlock: "215453568",
+			CreatedAtTime:  UnixTime(1669190667500),
+		},
+	}
+
+	assert.Equal(t, expected, res.Data)
+}
