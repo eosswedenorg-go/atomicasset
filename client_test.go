@@ -1032,3 +1032,154 @@ func TestGetCollectionStats(t *testing.T) {
 
 	assert.Equal(t, expected, res.Data)
 }
+
+func TestGetCollectionLogs(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+		assert.Equal(t, "/atomicassets/v1/collection/futuredoge11/logs", req.URL.String())
+
+		payload := `{
+			"success": true,
+			"data": [
+			  {
+				"log_id": "69460695139",
+				"name": "createcol",
+				"data": {
+				  "data": [
+					{
+					  "key": "name",
+					  "value": [
+						"string",
+						"OUT OF THE MATRIX "
+					  ]
+					},
+					{
+					  "key": "img",
+					  "value": [
+						"string",
+						"QmWfJDKaGXrXCQyCwQZs1PEzoTKU8VBmRW7X7jDv8Vw8ou"
+					  ]
+					},
+					{
+					  "key": "url",
+					  "value": [
+						"string",
+						"https://mariomojica11198.wixsite.com/www-mike1011989-com"
+					  ]
+					},
+					{
+					  "key": "socials",
+					  "value": [
+						"string",
+						"{\"twitter\":\"https://twitter.com/mike101198/status/1594230977034854400?s=46&t=tArO-6-7eEam6d_qD8BX-A\",\"medium\":\"\",\"facebook\":\"\",\"github\":\"\",\"discord\":\"\",\"youtube\":\"\",\"telegram\":\"\"}"
+					  ]
+					},
+					{
+					  "key": "creator_info",
+					  "value": [
+						"string",
+						"{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}"
+					  ]
+					},
+					{
+					  "key": "images",
+					  "value": [
+						"string",
+						"{\"banner_1920x500\":\"QmSaqnwSQtvCiyaksLXz5uDMRiMee3Er3V41xLAYRZHtMZ\",\"logo_512x512\":\"QmQuQ14uEbmGoPoFhzweJCMpJtNvr6GXCQxXnRzh6dxHi4\"}"
+					  ]
+					}
+				  ],
+				  "author": "d5jnk.c.wam",
+				  "market_fee": 0.02,
+				  "allow_notify": true,
+				  "notify_accounts": [],
+				  "authorized_accounts": [
+					"d5jnk.c.wam"
+				  ]
+				},
+				"txid": "fff8a4b6deebe16f3377498c2832ece181de789c78fabe1dbfe0c97b6547d165",
+				"created_at_block": "215442702",
+				"created_at_time": "1669185229500"
+			  }
+			],
+			"query_time": 1669212234204
+		  }`
+
+		res.Header().Add("Content-type", "application/json; charset=utf-8")
+		res.Write([]byte(payload))
+	}))
+
+	client := New(srv.URL)
+
+	res, err := client.GetCollectionLogs("futuredoge11")
+
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPStatusCode)
+	assert.True(t, res.Success)
+	assert.Equal(t, time.Date(2022, time.November, 23, 14, 3, 54, 204, time.UTC), res.QueryTime.Time())
+
+	expected := []Log{
+		{
+			ID:   "69460695139",
+			TxID: "fff8a4b6deebe16f3377498c2832ece181de789c78fabe1dbfe0c97b6547d165",
+			Name: "createcol",
+			Data: map[string]interface{}{
+				"data": []interface{}{
+					map[string]interface{}{
+						"key": "name",
+						"value": []interface{}{
+							"string",
+							"OUT OF THE MATRIX ",
+						},
+					},
+					map[string]interface{}{
+						"key": "img",
+						"value": []interface{}{
+							"string",
+							"QmWfJDKaGXrXCQyCwQZs1PEzoTKU8VBmRW7X7jDv8Vw8ou",
+						},
+					},
+					map[string]interface{}{
+						"key": "url",
+						"value": []interface{}{
+							"string",
+							"https://mariomojica11198.wixsite.com/www-mike1011989-com",
+						},
+					},
+					map[string]interface{}{
+						"key": "socials",
+						"value": []interface{}{
+							"string",
+							"{\"twitter\":\"https://twitter.com/mike101198/status/1594230977034854400?s=46&t=tArO-6-7eEam6d_qD8BX-A\",\"medium\":\"\",\"facebook\":\"\",\"github\":\"\",\"discord\":\"\",\"youtube\":\"\",\"telegram\":\"\"}",
+						},
+					},
+					map[string]interface{}{
+						"key": "creator_info",
+						"value": []interface{}{
+							"string",
+							"{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}",
+						},
+					},
+					map[string]interface{}{
+						"key": "images",
+						"value": []interface{}{
+							"string",
+							"{\"banner_1920x500\":\"QmSaqnwSQtvCiyaksLXz5uDMRiMee3Er3V41xLAYRZHtMZ\",\"logo_512x512\":\"QmQuQ14uEbmGoPoFhzweJCMpJtNvr6GXCQxXnRzh6dxHi4\"}",
+						},
+					},
+				},
+				"author":          "d5jnk.c.wam",
+				"market_fee":      0.02,
+				"allow_notify":    true,
+				"notify_accounts": []interface{}{},
+				"authorized_accounts": []interface{}{
+					"d5jnk.c.wam",
+				},
+			},
+
+			CreatedAtBlock: "215442702",
+			CreatedAtTime:  UnixTime(1669185229500),
+		},
+	}
+
+	assert.Equal(t, expected, res.Data)
+}

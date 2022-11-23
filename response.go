@@ -73,3 +73,8 @@ type CollectionStatsResponse struct {
 	APIResponse
 	Data CollectionStats
 }
+
+type CollectionLogsResponse struct {
+	APIResponse
+	Data []Log
+}
