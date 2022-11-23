@@ -160,16 +160,17 @@ type AssetSale struct {
 // Collection type
 
 type Collection struct {
-	CollectionName     string   `json:"collection_name"`
-	Contract           string   `json:"contract"`
-	Name               string   `json:"name"`
-	Author             string   `json:"author"`
-	AllowNotify        bool     `json:"allow_notify"`
-	AuthorizedAccounts []string `json:"authorized_accounts"`
-	NotifyAccounts     []string `json:"notify_accounts"`
-	MarketFee          float64  `json:"market_fee"`
-	CreatedAtBlock     string   `json:"created_at_block"`
-	CreatedAtTime      UnixTime `json:"created_at_time"`
+	CollectionName     string                 `json:"collection_name"`
+	Contract           string                 `json:"contract"`
+	Name               string                 `json:"name"`
+	Author             string                 `json:"author"`
+	AllowNotify        bool                   `json:"allow_notify"`
+	AuthorizedAccounts []string               `json:"authorized_accounts"`
+	NotifyAccounts     []string               `json:"notify_accounts"`
+	MarketFee          float64                `json:"market_fee"`
+	Data               map[string]interface{} `json:"data"`
+	CreatedAtBlock     string                 `json:"created_at_block"`
+	CreatedAtTime      UnixTime               `json:"created_at_time"`
 }
 
 // Schema types
