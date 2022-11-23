@@ -173,6 +173,15 @@ type Collection struct {
 	CreatedAtTime      UnixTime               `json:"created_at_time"`
 }
 
+type CollectionStats struct {
+	Assets           string   `json:"assets"`
+	Burned           string   `json:"burned"`
+	BurnedByTemplate []string `json:"burned_by_template"`
+	BurnedBySchema   []string `json:"burned_by_schema"`
+	Templates        string   `json:"templates"`
+	Schemas          string   `json:"schemas"`
+}
+
 // Schema types
 
 type Schema struct {

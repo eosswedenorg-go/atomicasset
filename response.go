@@ -68,3 +68,8 @@ type CollectionResponse struct {
 	APIResponse
 	Data Collection
 }
+
+type CollectionStatsResponse struct {
+	APIResponse
+	Data CollectionStats
+}

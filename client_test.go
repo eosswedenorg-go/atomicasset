@@ -987,3 +987,47 @@ func TestGetCollection(t *testing.T) {
 
 	assert.Equal(t, expected, res.Data)
 }
+
+func TestGetCollectionStats(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+		assert.Equal(t, "/atomicassets/v1/collection/mycoolcollection/stats", req.URL.String())
+
+		payload := `{
+			"success": true,
+			"data": {
+				"assets": "27",
+				"burned": "1",
+				"burned_by_template": [
+					"sometemplate"
+				],
+				"burned_by_schema": [],
+				"templates": "1",
+				"schemas": "1"
+			},
+			"query_time": 1355367264400
+		}`
+
+		res.Header().Add("Content-type", "application/json; charset=utf-8")
+		res.Write([]byte(payload))
+	}))
+
+	client := New(srv.URL)
+
+	res, err := client.GetCollectionStats("mycoolcollection")
+
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPStatusCode)
+	assert.True(t, res.Success)
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+
+	expected := CollectionStats{
+		Assets:           "27",
+		Burned:           "1",
+		BurnedByTemplate: []string{"sometemplate"},
+		BurnedBySchema:   []string{},
+		Templates:        "1",
+		Schemas:          "1",
+	}
+
+	assert.Equal(t, expected, res.Data)
+}
