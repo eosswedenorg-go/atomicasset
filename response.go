@@ -63,3 +63,8 @@ type CollectionsResponse struct {
 	APIResponse
 	Data []Collection
 }
+
+type CollectionResponse struct {
+	APIResponse
+	Data Collection
+}

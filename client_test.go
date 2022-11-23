@@ -916,3 +916,74 @@ func TestGetCollections(t *testing.T) {
 
 	assert.Equal(t, expected, res.Data)
 }
+
+func TestGetCollection(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+		assert.Equal(t, "/atomicassets/v1/collection/futuredoge11", req.URL.String())
+
+		payload := `{
+			"success": true,
+			"data": {
+				"contract": "atomicassets",
+				"collection_name": "futuredoge11",
+				"name": "OUT OF THE MATRIX ",
+				"img": "QmWfJDKaGXrXCQyCwQZs1PEzoTKU8VBmRW7X7jDv8Vw8ou",
+				"author": "d5jnk.c.wam",
+				"allow_notify": true,
+				"authorized_accounts": [
+				  "d5jnk.c.wam"
+				],
+				"notify_accounts": [],
+				"market_fee": 0.02,
+				"data": {
+				  "img": "QmWfJDKaGXrXCQyCwQZs1PEzoTKU8VBmRW7X7jDv8Vw8ou",
+				  "url": "https://mariomojica11198.wixsite.com/www-mike1011989-com",
+				  "name": "OUT OF THE MATRIX ",
+				  "images": "{\"banner_1920x500\":\"QmSaqnwSQtvCiyaksLXz5uDMRiMee3Er3V41xLAYRZHtMZ\",\"logo_512x512\":\"QmQuQ14uEbmGoPoFhzweJCMpJtNvr6GXCQxXnRzh6dxHi4\"}",
+				  "socials": "{\"twitter\":\"https://twitter.com/mike101198/status/1594230977034854400?s=46&t=tArO-6-7eEam6d_qD8BX-A\",\"medium\":\"\",\"facebook\":\"\",\"github\":\"\",\"discord\":\"\",\"youtube\":\"\",\"telegram\":\"\"}",
+				  "creator_info": "{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}"
+				},
+				"created_at_time": "1669185229500",
+				"created_at_block": "215442702"
+			  },
+			"query_time": 1355367264400
+		  }`
+
+		res.Header().Add("Content-type", "application/json; charset=utf-8")
+		res.Write([]byte(payload))
+	}))
+
+	client := New(srv.URL)
+
+	res, err := client.GetCollection("futuredoge11")
+
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPStatusCode)
+	assert.True(t, res.Success)
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+
+	expected := Collection{
+		Name:           "OUT OF THE MATRIX ",
+		CollectionName: "futuredoge11",
+		Contract:       "atomicassets",
+		Author:         "d5jnk.c.wam",
+		AuthorizedAccounts: []string{
+			"d5jnk.c.wam",
+		},
+		AllowNotify:    true,
+		NotifyAccounts: []string{},
+		MarketFee:      0.02,
+		Data: map[string]interface{}{
+			"img":          "QmWfJDKaGXrXCQyCwQZs1PEzoTKU8VBmRW7X7jDv8Vw8ou",
+			"url":          "https://mariomojica11198.wixsite.com/www-mike1011989-com",
+			"name":         "OUT OF THE MATRIX ",
+			"images":       "{\"banner_1920x500\":\"QmSaqnwSQtvCiyaksLXz5uDMRiMee3Er3V41xLAYRZHtMZ\",\"logo_512x512\":\"QmQuQ14uEbmGoPoFhzweJCMpJtNvr6GXCQxXnRzh6dxHi4\"}",
+			"socials":      "{\"twitter\":\"https://twitter.com/mike101198/status/1594230977034854400?s=46&t=tArO-6-7eEam6d_qD8BX-A\",\"medium\":\"\",\"facebook\":\"\",\"github\":\"\",\"discord\":\"\",\"youtube\":\"\",\"telegram\":\"\"}",
+			"creator_info": "{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}",
+		},
+		CreatedAtBlock: "215442702",
+		CreatedAtTime:  UnixTime(1669185229500),
+	}
+
+	assert.Equal(t, expected, res.Data)
+}

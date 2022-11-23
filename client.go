@@ -159,3 +159,19 @@ func (c *Client) GetCollections(params CollectionsRequestParams) (CollectionsRes
 	}
 	return resp, err
 }
+
+// GetCollection fetches "/atomicassets/v1/collection/<name>" from API
+func (c *Client) GetCollection(name string) (CollectionResponse, error) {
+	var resp CollectionResponse
+
+	r, err := c.send("GET", "/atomicassets/v1/collection/"+name, nil)
+	if err == nil {
+
+		// Set HTTPStatusCode
+		resp.HTTPStatusCode = r.StatusCode
+
+		// Parse json
+		err = r.Unmarshal(&resp)
+	}
+	return resp, err
+}
