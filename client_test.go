@@ -35,7 +35,7 @@ var asset1 = Asset{
 		},
 		MarketFee:      0.05,
 		CreatedAtBlock: "123762633",
-		CreatedAtTime:  "1623323058000",
+		CreatedAtTime:  UnixTime(1623323058000),
 	},
 	Schema: Schema{
 		Name:     "memberships",
@@ -67,7 +67,7 @@ var asset1 = Asset{
 			},
 		},
 		CreatedAtBlock: "136880914",
-		CreatedAtTime:  "1629887699000",
+		CreatedAtTime:  UnixTime(1629887699000),
 	},
 	Template: Template{
 		ID:             "260629",
@@ -84,7 +84,7 @@ var asset1 = Asset{
 			"description": "This is a member card powered by Wood. When used by the farmer, it will increase the power and luck of the wood mining tools, and can mine the Farmer Coin that has been lost since ancient times.",
 		},
 		CreatedAtBlock: "136882467",
-		CreatedAtTime:  "1629888476000",
+		CreatedAtTime:  UnixTime(1629888476000),
 	},
 	ImmutableData: map[string]interface{}{
 		"asdx": "4321",

@@ -125,18 +125,18 @@ type ListingAsset struct {
 	MutableData    map[string]interface{} `json:"mutable_data"`
 	Data           map[string]interface{} `json:"data"`
 
-	BurnedByAccount string `json:"burned_by_account"`
-	BurnedAtBlock   string `json:"burned_at_block"`
-	BurnedAtTime    string `json:"burned_at_time"`
+	BurnedByAccount string   `json:"burned_by_account"`
+	BurnedAtBlock   string   `json:"burned_at_block"`
+	BurnedAtTime    UnixTime `json:"burned_at_time"`
 
-	UpdatedAtBlock string `json:"updated_at_block"`
-	UpdatedAtTime  string `json:"updated_at_time"`
+	UpdatedAtBlock string   `json:"updated_at_block"`
+	UpdatedAtTime  UnixTime `json:"updated_at_time"`
 
-	TransferedAtBlock string `json:"transferred_at_block"`
-	TransferedAtTime  string `json:"transferred_at_time"`
+	TransferedAtBlock string   `json:"transferred_at_block"`
+	TransferedAtTime  UnixTime `json:"transferred_at_time"`
 
-	MintedAtBlock string `json:"minted_at_block"`
-	MintedAtTime  string `json:"minted_at_time"`
+	MintedAtBlock string   `json:"minted_at_block"`
+	MintedAtTime  UnixTime `json:"minted_at_time"`
 
 	Sales    []Sale    `json:"sales"`
 	Auctions []Auction `json:"actions"`
@@ -169,7 +169,7 @@ type Collection struct {
 	NotifyAccounts     []string `json:"notify_accounts"`
 	MarketFee          float64  `json:"market_fee"`
 	CreatedAtBlock     string   `json:"created_at_block"`
-	CreatedAtTime      string   `json:"created_at_time"`
+	CreatedAtTime      UnixTime `json:"created_at_time"`
 }
 
 // Schema types
@@ -179,7 +179,7 @@ type Schema struct {
 	Contract       string         `json:"contract"`
 	Format         []SchemaFormat `json:"format"`
 	CreatedAtBlock string         `json:"created_at_block"`
-	CreatedAtTime  string         `json:"created_at_time"`
+	CreatedAtTime  UnixTime       `json:"created_at_time"`
 }
 
 type SchemaFormat struct {
@@ -198,7 +198,7 @@ type Template struct {
 	IsBurnable     bool                   `json:"is_burnable"`
 	ImmutableData  map[string]interface{} `json:"immutable_data"`
 	CreatedAtBlock string                 `json:"created_at_block"`
-	CreatedAtTime  string                 `json:"created_at_time"`
+	CreatedAtTime  UnixTime               `json:"created_at_time"`
 }
 
 // Offer types
