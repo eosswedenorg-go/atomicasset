@@ -164,6 +164,7 @@ type Collection struct {
 	CollectionName     string                 `json:"collection_name"`
 	Contract           string                 `json:"contract"`
 	Name               string                 `json:"name"`
+	Image              string                 `json:"img"` // Not defined in the spec. but might be included in a response.
 	Author             string                 `json:"author"`
 	AllowNotify        bool                   `json:"allow_notify"`
 	AuthorizedAccounts []string               `json:"authorized_accounts"`

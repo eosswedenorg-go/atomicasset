@@ -21,6 +21,7 @@ var asset1 = Asset{
 	Collection: Collection{
 		CollectionName: "farmersworld",
 		Name:           "Farmers World",
+		Image:          "QmX79zrJsk4DbWQ3krgu41pX3fdvEvWjkMXiNCKpxFXSgj",
 		Author:         ".jieg.wam",
 		AllowNotify:    true,
 		AuthorizedAccounts: []string{
@@ -885,6 +886,7 @@ func TestGetCollections(t *testing.T) {
 	expected := []Collection{
 		{
 			Name:           "Play Gruond",
+			Image:          "QmbKHBLk9VTHfLhxy7LJEFUjEBJLB7gGSaBL2UeSRn6oMA",
 			CollectionName: "itabettysart",
 			Contract:       "atomicassets",
 			Author:         "gma3a.c.wam",
@@ -908,6 +910,7 @@ func TestGetCollections(t *testing.T) {
 		},
 		{
 			Name:           "Filipino Digital Arts",
+			Image:          "QmbukpNarUzBPfTsWsLNQzKhiowviTBenQS9YgdV8nqtj7",
 			CollectionName: "pinoydigiart",
 			Contract:       "atomicassets",
 			Author:         "utjsk.wam",
@@ -982,6 +985,7 @@ func TestGetCollection(t *testing.T) {
 
 	expected := Collection{
 		Name:           "OUT OF THE MATRIX ",
+		Image:          "QmWfJDKaGXrXCQyCwQZs1PEzoTKU8VBmRW7X7jDv8Vw8ou",
 		CollectionName: "futuredoge11",
 		Contract:       "atomicassets",
 		Author:         "d5jnk.c.wam",
@@ -1287,6 +1291,7 @@ func TestGetSchemas(t *testing.T) {
 			Collection: Collection{
 				CollectionName:     "mycollection",
 				Name:               "Some Cool Collection Name ",
+				Image:              "QmYUtzfGWAYrQ43eo1nNRfrYKpUS1cvCWmceCQYxjP7CkS",
 				Author:             "es2fwuiv5eyf",
 				AllowNotify:        true,
 				AuthorizedAccounts: []string{"es2fwuiv5eyf"},
