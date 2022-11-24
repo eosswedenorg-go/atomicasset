@@ -287,6 +287,10 @@ func TestClient_ErrorNoPayload(t *testing.T) {
 func TestClient_HostHeader(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		assert.Equal(t, "my-custom-host", req.Host)
+		res.Header().Add("Content-type", "application/json")
+		res.WriteHeader(200)
+		_, err := res.Write([]byte{})
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
