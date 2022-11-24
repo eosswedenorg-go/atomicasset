@@ -51,9 +51,9 @@ type AssetsRequestParams struct {
 	Before int `qs:"before,omitempty"`
 	After  int `qs:"after,omitempty"`
 
-	Limit int    `qs:"limit,omitempty"`
-	Order string `qs:"order,omitempty"`
-	Sort  string `qs:"sort,omitempty"`
+	Limit int       `qs:"limit,omitempty"`
+	Order SortOrder `qs:"order,omitempty"`
+	Sort  string    `qs:"sort,omitempty"`
 }
 
 // AssetSalesRequestParams holds the parameters for an AssetSales request
