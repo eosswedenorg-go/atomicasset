@@ -296,7 +296,8 @@ func TestClient_HostHeader(t *testing.T) {
 	client := New(srv.URL)
 	client.Host = "my-custom-host"
 
-	client.send("GET", "/", nil)
+	_, err := client.send("GET", "/", nil)
+	assert.NoError(t, err)
 }
 
 func TestClient_InvalidContentType(t *testing.T) {
