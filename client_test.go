@@ -38,8 +38,7 @@ var asset1 = Asset{
 		CreatedAtTime:  UnixTime(1623323058000),
 	},
 	Schema: InlineSchema{
-		Name:     "memberships",
-		Contract: "",
+		Name: "memberships",
 		Format: []SchemaFormat{
 			{
 				Name: "name",

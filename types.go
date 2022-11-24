@@ -187,7 +187,6 @@ type CollectionStats struct {
 
 type InlineSchema struct {
 	Name           string         `json:"schema_name"`
-	Contract       string         `json:"contract"`
 	Format         []SchemaFormat `json:"format"`
 	CreatedAtBlock string         `json:"created_at_block"`
 	CreatedAtTime  UnixTime       `json:"created_at_time"`
