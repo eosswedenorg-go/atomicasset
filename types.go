@@ -90,7 +90,7 @@ type Asset struct {
 	IsBurnable     bool                   `json:"is_burnable"`
 	TemplateMint   string                 `json:"template_mint"`
 	Collection     Collection             `json:"collection"`
-	Schema         Schema                 `json:"schema"`
+	Schema         InlineSchema           `json:"schema"`
 	Template       Template               `json:"template"`
 	BackedTokens   []Token                `json:"backed_tokens"`
 	ImmutableData  map[string]interface{} `json:"immutable_data"`
@@ -119,7 +119,7 @@ type ListingAsset struct {
 	IsBurnable     bool                   `json:"is_burnable"`
 	TemplateMint   string                 `json:"template_mint"`
 	Collection     Collection             `json:"collection"`
-	Schema         Schema                 `json:"schema"`
+	Schema         InlineSchema           `json:"schema"`
 	Template       Template               `json:"template"`
 	BackedTokens   []Token                `json:"backed_tokens"`
 	ImmutableData  map[string]interface{} `json:"immutable_data"`
@@ -185,7 +185,7 @@ type CollectionStats struct {
 
 // Schema types
 
-type Schema struct {
+type InlineSchema struct {
 	Name           string         `json:"schema_name"`
 	Contract       string         `json:"contract"`
 	Format         []SchemaFormat `json:"format"`

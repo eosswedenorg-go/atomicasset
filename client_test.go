@@ -37,7 +37,7 @@ var asset1 = Asset{
 		CreatedAtBlock: "123762633",
 		CreatedAtTime:  UnixTime(1623323058000),
 	},
-	Schema: Schema{
+	Schema: InlineSchema{
 		Name:     "memberships",
 		Contract: "",
 		Format: []SchemaFormat{
