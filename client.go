@@ -207,3 +207,19 @@ func (c *Client) GetCollectionLogs(name string, params CollectionLogsRequestPara
 	}
 	return resp, err
 }
+
+// GetSchemas fetches "/atomicassets/v1/schemas" from API
+func (c *Client) GetSchemas(params SchemasRequestParams) (SchemasResponse, error) {
+	var resp SchemasResponse
+
+	r, err := c.send("GET", "/atomicassets/v1/schemas", params)
+	if err == nil {
+
+		// Set HTTPStatusCode
+		resp.HTTPStatusCode = r.StatusCode
+
+		// Parse json
+		err = r.Unmarshal(&resp)
+	}
+	return resp, err
+}

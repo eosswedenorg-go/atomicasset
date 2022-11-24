@@ -103,3 +103,38 @@ type CollectionLogsRequestParams struct {
 	ActionBlacklist string    `qs:"action_blacklist,omitempty"`
 	ActionWhitelist string    `qs:"action_whitelist,omitempty"`
 }
+
+type SchemaSortColumn string
+
+const (
+
+	// SchemaSortDefault sorts by the default column (created)
+	SchemaSortDefault SchemaSortColumn = ""
+
+	// SchemaSortCreated sorts by the created column
+	SchemaSortCreated SchemaSortColumn = "created"
+
+	// SchemaSortAssets sorts by the assets column
+	SchemaSortAssets SchemaSortColumn = "assets"
+
+	// SchemaSortName sorts by the schema name column
+	SchemaSortName SchemaSortColumn = "schema_name"
+)
+
+type SchemasRequestParams struct {
+	Author            string           `qs:"author,omitempty"`
+	Match             string           `qs:"match,omitempty"`
+	AuthorizedAccount string           `qs:"authorized_account,omitempty"`
+	NotifyAccount     string           `qs:"notify_account,omitempty"`
+	Blacklist         string           `qs:"collection_blacklist,omitempty"`
+	Whitelist         string           `qs:"collection_whitelist,omitempty"`
+	IDs               string           `qs:"ids,omitempty"`
+	LowerBound        string           `qs:"lower_bound,omitempty"`
+	UpperBound        string           `qs:"upper_bound,omitempty"`
+	Before            int              `qs:"before,omitempty"`
+	After             int              `qs:"after,omitempty"`
+	Page              int              `qs:"page,omitempty"`
+	Limit             int              `qs:"limit,omitempty"`
+	Order             SortOrder        `qs:"order,omitempty"`
+	Sort              SchemaSortColumn `qs:"sort,omitempty"`
+}

@@ -78,3 +78,8 @@ type CollectionLogsResponse struct {
 	APIResponse
 	Data []Log
 }
+
+type SchemasResponse struct {
+	APIResponse
+	Data []Schema
+}
