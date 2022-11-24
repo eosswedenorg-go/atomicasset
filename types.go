@@ -82,19 +82,20 @@ type Log struct {
 // Asset types
 
 type Asset struct {
-	ID             string                 `json:"asset_id"`
-	Contract       string                 `json:"contract"`
-	Owner          string                 `json:"owner"`
-	Name           string                 `json:"name"`
-	IsTransferable bool                   `json:"is_transferable"`
-	IsBurnable     bool                   `json:"is_burnable"`
-	TemplateMint   string                 `json:"template_mint"`
-	Collection     Collection             `json:"collection"`
-	Schema         InlineSchema           `json:"schema"`
-	Template       Template               `json:"template"`
-	BackedTokens   []Token                `json:"backed_tokens"`
-	ImmutableData  map[string]interface{} `json:"immutable_data"`
-	MutableData    map[string]interface{} `json:"mutable_data"`
+	ID             string       `json:"asset_id"`
+	Contract       string       `json:"contract"`
+	Owner          string       `json:"owner"`
+	Name           string       `json:"name"`
+	IsTransferable bool         `json:"is_transferable"`
+	IsBurnable     bool         `json:"is_burnable"`
+	TemplateMint   string       `json:"template_mint"`
+	Collection     Collection   `json:"collection"`
+	Schema         InlineSchema `json:"schema"`
+	Template       Template     `json:"template"`
+	BackedTokens   []Token      `json:"backed_tokens"`
+
+	ImmutableData map[string]interface{} `json:"immutable_data"`
+	MutableData   map[string]interface{} `json:"mutable_data"`
 
 	BurnedByAccount string `json:"burned_by_account"`
 	BurnedAtBlock   string `json:"burned_at_block"`
@@ -111,20 +112,21 @@ type Asset struct {
 }
 
 type ListingAsset struct {
-	AssetID        string                 `json:"asset_id"`
-	Contract       string                 `json:"contract"`
-	Onwer          string                 `json:"owner"`
-	Name           string                 `json:"name"`
-	IsTransferable bool                   `json:"is_transferable"`
-	IsBurnable     bool                   `json:"is_burnable"`
-	TemplateMint   string                 `json:"template_mint"`
-	Collection     Collection             `json:"collection"`
-	Schema         InlineSchema           `json:"schema"`
-	Template       Template               `json:"template"`
-	BackedTokens   []Token                `json:"backed_tokens"`
-	ImmutableData  map[string]interface{} `json:"immutable_data"`
-	MutableData    map[string]interface{} `json:"mutable_data"`
-	Data           map[string]interface{} `json:"data"`
+	AssetID        string       `json:"asset_id"`
+	Contract       string       `json:"contract"`
+	Onwer          string       `json:"owner"`
+	Name           string       `json:"name"`
+	IsTransferable bool         `json:"is_transferable"`
+	IsBurnable     bool         `json:"is_burnable"`
+	TemplateMint   string       `json:"template_mint"`
+	Collection     Collection   `json:"collection"`
+	Schema         InlineSchema `json:"schema"`
+	Template       Template     `json:"template"`
+	BackedTokens   []Token      `json:"backed_tokens"`
+
+	ImmutableData map[string]interface{} `json:"immutable_data"`
+	MutableData   map[string]interface{} `json:"mutable_data"`
+	Data          map[string]interface{} `json:"data"`
 
 	BurnedByAccount string   `json:"burned_by_account"`
 	BurnedAtBlock   string   `json:"burned_at_block"`
@@ -161,18 +163,20 @@ type AssetSale struct {
 // Collection type
 
 type Collection struct {
-	CollectionName     string                 `json:"collection_name"`
-	Contract           string                 `json:"contract"`
-	Name               string                 `json:"name"`
-	Image              string                 `json:"img"` // Not defined in the spec. but might be included in a response.
-	Author             string                 `json:"author"`
-	AllowNotify        bool                   `json:"allow_notify"`
-	AuthorizedAccounts []string               `json:"authorized_accounts"`
-	NotifyAccounts     []string               `json:"notify_accounts"`
-	MarketFee          float64                `json:"market_fee"`
-	Data               map[string]interface{} `json:"data"`
-	CreatedAtBlock     string                 `json:"created_at_block"`
-	CreatedAtTime      UnixTime               `json:"created_at_time"`
+	CollectionName     string   `json:"collection_name"`
+	Contract           string   `json:"contract"`
+	Name               string   `json:"name"`
+	Image              string   `json:"img"` // Not defined in the spec. but might be included in a response.
+	Author             string   `json:"author"`
+	AllowNotify        bool     `json:"allow_notify"`
+	AuthorizedAccounts []string `json:"authorized_accounts"`
+	NotifyAccounts     []string `json:"notify_accounts"`
+	MarketFee          float64  `json:"market_fee"`
+
+	Data map[string]interface{} `json:"data"`
+
+	CreatedAtBlock string   `json:"created_at_block"`
+	CreatedAtTime  UnixTime `json:"created_at_time"`
 }
 
 type CollectionStats struct {
@@ -224,37 +228,42 @@ type Template struct {
 // Offer types
 
 type Offer struct {
-	ID                  string   `json:"offer_id"`
-	Contract            string   `json:"contract"`
-	Sender              string   `json:"sender_name"`
-	Recipient           string   `json:"recipient_name"`
-	Memo                string   `json:"memo"`
-	State               int64    `json:"state"`
-	IsSenderContract    bool     `json:"is_sender_contract"`
-	IsRecipientContract bool     `json:"is_recipient_contract"`
-	SenderAssets        []Asset  `json:"sender_assets"`
-	RecipientAssets     []Asset  `json:"recipient_assets"`
-	UpdatedAtBlock      string   `json:"updated_at_block"`
-	UpdatedAtTime       UnixTime `json:"updated_at_time"`
-	CreatedAtBlock      string   `json:"created_at_block"`
-	CreatedAtTime       UnixTime `Json:"created_at_time"`
+	ID                  string  `json:"offer_id"`
+	Contract            string  `json:"contract"`
+	Sender              string  `json:"sender_name"`
+	Recipient           string  `json:"recipient_name"`
+	Memo                string  `json:"memo"`
+	State               int64   `json:"state"`
+	IsSenderContract    bool    `json:"is_sender_contract"`
+	IsRecipientContract bool    `json:"is_recipient_contract"`
+	SenderAssets        []Asset `json:"sender_assets"`
+	RecipientAssets     []Asset `json:"recipient_assets"`
+
+	UpdatedAtBlock string   `json:"updated_at_block"`
+	UpdatedAtTime  UnixTime `json:"updated_at_time"`
+
+	CreatedAtBlock string   `json:"created_at_block"`
+	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
 type ListingOffer struct {
-	ID                  string         `json:"offer_id"`
-	Contract            string         `json:"contract"`
-	Sender              string         `json:"sender_name"`
-	Recipient           string         `json:"recipient_name"`
-	Memo                string         `json:"memo"`
-	State               int64          `json:"state"`
-	IsSenderContract    bool           `json:"is_sender_contract"`
-	IsRecipientContract bool           `json:"is_recipient_contract"`
-	SenderAssets        []ListingAsset `json:"sender_assets"`
-	RecipientAssets     []ListingAsset `json:"recipient_assets"`
-	UpdatedAtBlock      string         `json:"updated_at_block"`
-	UpdatedAtTime       UnixTime       `json:"updated_at_time"`
-	CreatedAtBlock      string         `json:"created_at_block"`
-	CreatedAtTime       UnixTime       `Json:"created_at_time"`
+	ID                  string `json:"offer_id"`
+	Contract            string `json:"contract"`
+	Sender              string `json:"sender_name"`
+	Recipient           string `json:"recipient_name"`
+	Memo                string `json:"memo"`
+	State               int64  `json:"state"`
+	IsSenderContract    bool   `json:"is_sender_contract"`
+	IsRecipientContract bool   `json:"is_recipient_contract"`
+
+	SenderAssets    []ListingAsset `json:"sender_assets"`
+	RecipientAssets []ListingAsset `json:"recipient_assets"`
+
+	UpdatedAtBlock string   `json:"updated_at_block"`
+	UpdatedAtTime  UnixTime `json:"updated_at_time"`
+
+	CreatedAtBlock string   `json:"created_at_block"`
+	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
 type BuyOffer struct {
@@ -271,34 +280,38 @@ type BuyOffer struct {
 	State            int64      `json:"state"`
 	Memo             string     `json:"memo"`
 	DeclineMemo      string     `json:"decline_memo"`
-	UpdatedAtBlock   string     `json:"updated_at_block"`
-	UpdatedAtTime    UnixTime   `json:"updated_at_time"`
-	CreatedAtBlock   string     `json:"created_at_block"`
-	CreatedAtTime    UnixTime   `Json:"created_at_time"`
+
+	UpdatedAtBlock string   `json:"updated_at_block"`
+	UpdatedAtTime  UnixTime `json:"updated_at_time"`
+
+	CreatedAtBlock string   `json:"created_at_block"`
+	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
 // Transfer types
 
 type Transfer struct {
-	ID             string   `json:"transfer_id"`
-	Contract       string   `json:"contract"`
-	Sender         string   `json:"sender_name"`
-	Recipient      string   `json:"recipient_name"`
-	Memo           string   `json:"memo"`
-	Assets         []Asset  `json:"assets"`
+	ID        string  `json:"transfer_id"`
+	Contract  string  `json:"contract"`
+	Sender    string  `json:"sender_name"`
+	Recipient string  `json:"recipient_name"`
+	Memo      string  `json:"memo"`
+	Assets    []Asset `json:"assets"`
+
 	CreatedAtBlock string   `json:"created_at_block"`
 	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
 type ListingTransfer struct {
-	ID             string         `json:"transfer_id"`
-	Contract       string         `json:"contract"`
-	Sender         string         `json:"sender_name"`
-	Recipient      string         `json:"recipient_name"`
-	Memo           string         `json:"memo"`
-	Assets         []ListingAsset `json:"assets"`
-	CreatedAtBlock string         `json:"created_at_block"`
-	CreatedAtTime  UnixTime       `Json:"created_at_time"`
+	ID        string         `json:"transfer_id"`
+	Contract  string         `json:"contract"`
+	Sender    string         `json:"sender_name"`
+	Recipient string         `json:"recipient_name"`
+	Memo      string         `json:"memo"`
+	Assets    []ListingAsset `json:"assets"`
+
+	CreatedAtBlock string   `json:"created_at_block"`
+	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
 // Sale types
@@ -318,10 +331,12 @@ type Sale struct {
 	TakerMarketplace string     `json:"taker_marketplace,omitempty"`
 	Collection       Collection `json:"collection"`
 	State            int64      `json:"state"`
-	UpdatedAtBlock   string     `json:"updated_at_block"`
-	UpdatedAtTime    UnixTime   `json:"updated_at_time"`
-	CreatedAtBlock   string     `json:"created_at_block"`
-	CreatedAtTime    UnixTime   `Json:"created_at_time"`
+
+	UpdatedAtBlock string   `json:"updated_at_block"`
+	UpdatedAtTime  UnixTime `json:"updated_at_time"`
+
+	CreatedAtBlock string   `json:"created_at_block"`
+	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
 // Action types
@@ -363,16 +378,17 @@ type PriceToken struct {
 // Link types
 
 type Link struct {
-	ID             string   `json:"link_id"`
-	ToolsContract  string   `json:"tools_contract"`
-	AssetsContract string   `json:"assets_contract"`
-	Creator        string   `json:"creator"`
-	Claimer        string   `json:"claimer,omitempty"`
-	State          int64    `json:"state"`
-	PublicKey      string   `json:"public_key"`
-	Memo           string   `json:"memo"`
-	TxID           string   `json:"txid"`
-	Assets         []Asset  `json:"assets"`
+	ID             string  `json:"link_id"`
+	ToolsContract  string  `json:"tools_contract"`
+	AssetsContract string  `json:"assets_contract"`
+	Creator        string  `json:"creator"`
+	Claimer        string  `json:"claimer,omitempty"`
+	State          int64   `json:"state"`
+	PublicKey      string  `json:"public_key"`
+	Memo           string  `json:"memo"`
+	TxID           string  `json:"txid"`
+	Assets         []Asset `json:"assets"`
+
 	CreatedAtBlock string   `json:"created_at_block"`
 	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
