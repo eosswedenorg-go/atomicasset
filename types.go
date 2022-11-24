@@ -185,6 +185,15 @@ type CollectionStats struct {
 
 // Schema types
 
+type Schema struct {
+	Name           string         `json:"schema_name"`
+	Contract       string         `json:"contract"`
+	Format         []SchemaFormat `json:"format"`
+	Collection     Collection     `json:"collection"`
+	CreatedAtBlock string         `json:"created_at_block"`
+	CreatedAtTime  UnixTime       `json:"created_at_time"`
+}
+
 type InlineSchema struct {
 	Name           string         `json:"schema_name"`
 	Format         []SchemaFormat `json:"format"`
