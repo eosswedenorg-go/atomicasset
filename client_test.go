@@ -148,7 +148,8 @@ func TestClient_GetHealth(t *testing.T) {
             }`
 
 			res.Header().Add("Content-type", "application/json; charset=utf-8")
-			res.Write([]byte(payload))
+			_, err := res.Write([]byte(payload))
+			assert.NoError(t, err)
 		}
 	}))
 
@@ -201,7 +202,8 @@ func TestClient_GetHealthFailed(t *testing.T) {
             }`
 
 			res.Header().Add("Content-type", "application/json")
-			res.Write([]byte(payload))
+			_, err := res.Write([]byte(payload))
+			assert.NoError(t, err)
 		}
 	}))
 
@@ -240,7 +242,8 @@ func TestClient_APIError(t *testing.T) {
 
 		res.Header().Add("Content-type", "application/json")
 		res.WriteHeader(500)
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -254,7 +257,8 @@ func TestClient_APIErrorEmptyPayload(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		res.Header().Add("Content-type", "application/json")
 		res.WriteHeader(404)
-		res.Write([]byte(`{}`))
+		_, err := res.Write([]byte(`{}`))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -269,7 +273,8 @@ func TestClient_ErrorNoPayload(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		res.Header().Add("Content-type", "application/json")
 		res.WriteHeader(200)
-		res.Write([]byte{})
+		_, err := res.Write([]byte{})
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -413,7 +418,8 @@ func TestClient_GetAsset(t *testing.T) {
         }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -539,7 +545,8 @@ func TestClient_GetAssets(t *testing.T) {
     }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -579,7 +586,8 @@ func TestGetAssetLog(t *testing.T) {
         }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -646,7 +654,8 @@ func TestGetAssetSale(t *testing.T) {
           }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -711,7 +720,8 @@ func TestGetAssetSaleFilterSeller(t *testing.T) {
           }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -765,7 +775,8 @@ func TestGetAssetSaleFilterBuyer(t *testing.T) {
           }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -854,7 +865,8 @@ func TestGetCollections(t *testing.T) {
 		  }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -951,7 +963,8 @@ func TestGetCollection(t *testing.T) {
 		  }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -1009,7 +1022,8 @@ func TestGetCollectionStats(t *testing.T) {
 		}`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
@@ -1105,7 +1119,8 @@ func TestGetCollectionLogs(t *testing.T) {
 		  }`
 
 		res.Header().Add("Content-type", "application/json; charset=utf-8")
-		res.Write([]byte(payload))
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
 	}))
 
 	client := New(srv.URL)
