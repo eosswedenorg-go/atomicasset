@@ -1,5 +1,9 @@
 package atomicasset
 
+import (
+	"strings"
+)
+
 type SortOrder string
 
 const (
@@ -21,4 +25,22 @@ type LogRequestParams struct {
 	Order           SortOrder `qs:"order,omitempty"`
 	ActionWhitelist string    `qs:"action_whitelist,omitempty"`
 	ActionBlacklist string    `qs:"action_blacklist,omitempty"`
+}
+
+// ReqStringList type is used to encode string slices into a single string
+// separated by "," instead of qs default (multiple keys with the same name).
+
+// ReqStringList{"a", "b", "c"} url encodes into: "field=a,b,c"
+// []string{"a", "b", "c"} encodes into "field=a&field=b&field=c"
+
+// atomicassets calls usually wants comma separated strings.
+
+type ReqStringList []string
+
+func (cs ReqStringList) EncodeParam() (string, error) {
+	return strings.Join(cs, ","), nil
+}
+
+func (cs ReqStringList) IsZero() bool {
+	return len(cs) < 1
 }

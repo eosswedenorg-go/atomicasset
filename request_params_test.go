@@ -5,7 +5,6 @@ import (
 	"testing"
 
 	"github.com/sonh/qs"
-
 	"github.com/stretchr/testify/assert"
 )
 
@@ -30,6 +29,50 @@ func TestRequest_LogRequestParams(t *testing.T) {
 
 			assert.NoError(t, err)
 			assert.EqualValues(t, tt.expected, v)
+		})
+	}
+}
+
+func TestReqStringList_EncodeParam(t *testing.T) {
+	tests := []struct {
+		name    string
+		cs      ReqStringList
+		want    string
+		wantErr bool
+	}{
+		{"Empty", []string{}, "", false},
+		{"One", []string{"one"}, "one", false},
+		{"Many", []string{"one", "two", "three"}, "one,two,three", false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := tt.cs.EncodeParam()
+			if (err != nil) != tt.wantErr {
+				t.Errorf("ReqStringList.EncodeParam() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if got != tt.want {
+				t.Errorf("ReqStringList.EncodeParam() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestReqStringList_IsZero(t *testing.T) {
+	tests := []struct {
+		name string
+		cs   ReqStringList
+		want bool
+	}{
+		{"Empty", []string{}, true},
+		{"Non empty", []string{"random"}, false},
+		{"2 elements", []string{"one", "two"}, false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := tt.cs.IsZero(); got != tt.want {
+				t.Errorf("ReqStringList.IsZero() = %v, want %v", got, tt.want)
+			}
 		})
 	}
 }
