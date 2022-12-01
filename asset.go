@@ -152,12 +152,8 @@ type AssetLogResponse struct {
 func (c *Client) GetAssets(params AssetsRequestParams) (AssetsResponse, error) {
 	var assets AssetsResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/assets", params)
+	r, err := c.fetch("GET", "/atomicassets/v1/assets", params, &assets.APIResponse)
 	if err == nil {
-
-		// Set HTTPStatusCode
-		assets.HTTPStatusCode = r.StatusCode
-
 		// Parse json
 		err = r.Unmarshal(&assets)
 	}
@@ -168,12 +164,8 @@ func (c *Client) GetAssets(params AssetsRequestParams) (AssetsResponse, error) {
 func (c *Client) GetAsset(assetID string) (AssetResponse, error) {
 	var asset AssetResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/assets/"+assetID, nil)
+	r, err := c.fetch("GET", "/atomicassets/v1/assets/"+assetID, nil, &asset.APIResponse)
 	if err == nil {
-
-		// Set HTTPStatusCode
-		asset.HTTPStatusCode = r.StatusCode
-
 		// Parse json
 		err = r.Unmarshal(&asset)
 	}
@@ -184,12 +176,8 @@ func (c *Client) GetAsset(assetID string) (AssetResponse, error) {
 func (c *Client) GetAssetLog(assetID string, params LogRequestParams) (AssetLogResponse, error) {
 	var logs AssetLogResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/assets/"+assetID+"/logs", params)
+	r, err := c.fetch("GET", "/atomicassets/v1/assets/"+assetID+"/logs", params, &logs.APIResponse)
 	if err == nil {
-
-		// Set HTTPStatusCode
-		logs.HTTPStatusCode = r.StatusCode
-
 		// Parse json
 		err = r.Unmarshal(&logs)
 	}
@@ -200,12 +188,8 @@ func (c *Client) GetAssetLog(assetID string, params LogRequestParams) (AssetLogR
 func (c *Client) GetAssetSales(assetID string, params AssetSalesRequestParams) (SalesResponse, error) {
 	var sales SalesResponse
 
-	r, err := c.send("GET", "/atomicmarket/v1/assets/"+assetID+"/sales", params)
+	r, err := c.fetch("GET", "/atomicmarket/v1/assets/"+assetID+"/sales", params, &sales.APIResponse)
 	if err == nil {
-
-		// Set HTTPStatusCode
-		sales.HTTPStatusCode = r.StatusCode
-
 		// Parse json
 		err = r.Unmarshal(&sales)
 	}

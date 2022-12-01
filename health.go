@@ -37,12 +37,8 @@ type Health struct {
 func (c *Client) GetHealth() (Health, error) {
 	var health Health
 
-	r, err := c.send("GET", "/health", nil)
+	r, err := c.fetch("GET", "/health", nil, &health.APIResponse)
 	if err == nil {
-
-		// Set HTTPStatusCode
-		health.HTTPStatusCode = r.StatusCode
-
 		// Parse json
 		err = r.Unmarshal(&health)
 	}

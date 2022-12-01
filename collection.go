@@ -98,12 +98,8 @@ type CollectionLogsResponse struct {
 func (c *Client) GetCollections(params CollectionsRequestParams) (CollectionsResponse, error) {
 	var resp CollectionsResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/collections", params)
+	r, err := c.fetch("GET", "/atomicassets/v1/collections", params, &resp.APIResponse)
 	if err == nil {
-
-		// Set HTTPStatusCode
-		resp.HTTPStatusCode = r.StatusCode
-
 		// Parse json
 		err = r.Unmarshal(&resp)
 	}
@@ -114,7 +110,7 @@ func (c *Client) GetCollections(params CollectionsRequestParams) (CollectionsRes
 func (c *Client) GetCollection(name string) (CollectionResponse, error) {
 	var resp CollectionResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/collection/"+name, nil)
+	r, err := c.fetch("GET", "/atomicassets/v1/collection/"+name, nil, &resp.APIResponse)
 	if err == nil {
 
 		// Set HTTPStatusCode
@@ -130,7 +126,7 @@ func (c *Client) GetCollection(name string) (CollectionResponse, error) {
 func (c *Client) GetCollectionStats(name string) (CollectionStatsResponse, error) {
 	var resp CollectionStatsResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/collection/"+name+"/stats", nil)
+	r, err := c.fetch("GET", "/atomicassets/v1/collection/"+name+"/stats", nil, &resp.APIResponse)
 	if err == nil {
 
 		// Set HTTPStatusCode
@@ -146,7 +142,7 @@ func (c *Client) GetCollectionStats(name string) (CollectionStatsResponse, error
 func (c *Client) GetCollectionLogs(name string, params CollectionLogsRequestParams) (CollectionLogsResponse, error) {
 	var resp CollectionLogsResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/collection/"+name+"/logs", params)
+	r, err := c.fetch("GET", "/atomicassets/v1/collection/"+name+"/logs", params, &resp.APIResponse)
 	if err == nil {
 
 		// Set HTTPStatusCode

@@ -73,12 +73,8 @@ type SchemasResponse struct {
 func (c *Client) GetSchemas(params SchemasRequestParams) (SchemasResponse, error) {
 	var resp SchemasResponse
 
-	r, err := c.send("GET", "/atomicassets/v1/schemas", params)
+	r, err := c.fetch("GET", "/atomicassets/v1/schemas", params, &resp.APIResponse)
 	if err == nil {
-
-		// Set HTTPStatusCode
-		resp.HTTPStatusCode = r.StatusCode
-
 		// Parse json
 		err = r.Unmarshal(&resp)
 	}
