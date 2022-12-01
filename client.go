@@ -63,3 +63,12 @@ func (c *Client) send(method string, path string, params interface{}) (*req.Resp
 
 	return resp, err
 }
+
+func (c *Client) fetch(method string, url string, params interface{}, resp *APIResponse) (*req.Response, error) {
+	r, err := c.send(method, url, params)
+	if err == nil {
+		// Set HTTPStatusCode
+		resp.HTTPStatusCode = r.StatusCode
+	}
+	return r, err
+}
