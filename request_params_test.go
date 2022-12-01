@@ -18,8 +18,8 @@ func TestRequest_LogRequestParams(t *testing.T) {
 		{"Page", LogRequestParams{Page: 134}, url.Values{"page": []string{"134"}}},
 		{"Limit", LogRequestParams{Limit: 50}, url.Values{"limit": []string{"50"}}},
 		{"Order", LogRequestParams{Order: SortDescending}, url.Values{"order": []string{"desc"}}},
-		{"Whitelist", LogRequestParams{ActionWhitelist: "one,two"}, url.Values{"action_whitelist": []string{"one,two"}}},
-		{"Blacklist", LogRequestParams{ActionBlacklist: "one,two"}, url.Values{"action_blacklist": []string{"one,two"}}},
+		{"Whitelist", LogRequestParams{ActionWhitelist: ReqStringList{"one", "two"}}, url.Values{"action_whitelist": []string{"one,two"}}},
+		{"Blacklist", LogRequestParams{ActionBlacklist: ReqStringList{"one", "two"}}, url.Values{"action_blacklist": []string{"one,two"}}},
 		{"PageOrderLimit", LogRequestParams{Page: 2, Limit: 30, Order: SortAscending}, url.Values{"order": []string{"asc"}, "page": []string{"2"}, "limit": []string{"30"}}},
 	}
 

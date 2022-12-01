@@ -47,9 +47,9 @@ type SchemasRequestParams struct {
 	Match             string           `qs:"match,omitempty"`
 	AuthorizedAccount string           `qs:"authorized_account,omitempty"`
 	NotifyAccount     string           `qs:"notify_account,omitempty"`
-	Blacklist         string           `qs:"collection_blacklist,omitempty"`
-	Whitelist         string           `qs:"collection_whitelist,omitempty"`
-	IDs               string           `qs:"ids,omitempty"`
+	Blacklist         ReqStringList    `qs:"collection_blacklist,omitempty"`
+	Whitelist         ReqStringList    `qs:"collection_whitelist,omitempty"`
+	IDs               ReqIntList       `qs:"ids,omitempty"`
 	LowerBound        string           `qs:"lower_bound,omitempty"`
 	UpperBound        string           `qs:"upper_bound,omitempty"`
 	Before            int              `qs:"before,omitempty"`

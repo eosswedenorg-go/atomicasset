@@ -18,13 +18,13 @@ func TestRequest_AssetsRequestParams(t *testing.T) {
 		{"Empty", AssetsRequestParams{}, url.Values{}},
 
 		{"CollectionName", AssetsRequestParams{CollectionName: "name"}, url.Values{"collection_name": []string{"name"}}},
-		{"CollectionBlacklist", AssetsRequestParams{CollectionBlacklist: []string{"col1", "col2"}}, url.Values{"collection_blacklist": []string{"col1", "col2"}}},
-		{"CollectionWhitelist", AssetsRequestParams{CollectionWhitelist: []string{"col3", "col4"}}, url.Values{"collection_whitelist": []string{"col3", "col4"}}},
+		{"CollectionBlacklist", AssetsRequestParams{CollectionBlacklist: []string{"col1", "col2"}}, url.Values{"collection_blacklist": []string{"col1,col2"}}},
+		{"CollectionWhitelist", AssetsRequestParams{CollectionWhitelist: []string{"col3", "col4"}}, url.Values{"collection_whitelist": []string{"col3,col4"}}},
 		{"SchemaName", AssetsRequestParams{SchemaName: "schema"}, url.Values{"schema_name": []string{"schema"}}},
 
 		{"TemplateID", AssetsRequestParams{TemplateID: 1337}, url.Values{"template_id": []string{"1337"}}},
-		{"TemplateWhitelist", AssetsRequestParams{TemplateWhitelist: []int{1, 2}}, url.Values{"template_whitelist": []string{"1", "2"}}},
-		{"TemplateBlacklist", AssetsRequestParams{TemplateBlacklist: []int{3, 4}}, url.Values{"template_blacklist": []string{"3", "4"}}},
+		{"TemplateWhitelist", AssetsRequestParams{TemplateWhitelist: []int{1, 2}}, url.Values{"template_whitelist": []string{"1,2"}}},
+		{"TemplateBlacklist", AssetsRequestParams{TemplateBlacklist: []int{3, 4}}, url.Values{"template_blacklist": []string{"3,4"}}},
 
 		{"Owner", AssetsRequestParams{Owner: "name"}, url.Values{"owner": []string{"name"}}},
 

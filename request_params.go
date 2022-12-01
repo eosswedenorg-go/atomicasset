@@ -21,11 +21,11 @@ const (
 
 // LogRequestParams holds the parameters for an Log request
 type LogRequestParams struct {
-	Page            int       `qs:"page,omitempty"`
-	Limit           int       `qs:"limit,omitempty"`
-	Order           SortOrder `qs:"order,omitempty"`
-	ActionWhitelist string    `qs:"action_whitelist,omitempty"`
-	ActionBlacklist string    `qs:"action_blacklist,omitempty"`
+	Page            int           `qs:"page,omitempty"`
+	Limit           int           `qs:"limit,omitempty"`
+	Order           SortOrder     `qs:"order,omitempty"`
+	ActionWhitelist ReqStringList `qs:"action_whitelist,omitempty"`
+	ActionBlacklist ReqStringList `qs:"action_blacklist,omitempty"`
 }
 
 // ReqStringList type is used to encode string slices into a single string
