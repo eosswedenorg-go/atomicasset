@@ -18,20 +18,6 @@ type Log struct {
 	CreatedAtTime  UnixTime               `json:"created_at_time"`
 }
 
-// Template types
-
-type Template struct {
-	ID             string                 `json:"template_id"`
-	Contract       string                 `json:"contract"`
-	MaxSupply      string                 `json:"max_supply"`
-	IssuedSupply   string                 `json:"issued_supply"`
-	IsTransferable bool                   `json:"is_transferable"`
-	IsBurnable     bool                   `json:"is_burnable"`
-	ImmutableData  map[string]interface{} `json:"immutable_data"`
-	CreatedAtBlock string                 `json:"created_at_block"`
-	CreatedAtTime  UnixTime               `json:"created_at_time"`
-}
-
 // Offer types
 
 type Offer struct {
