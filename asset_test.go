@@ -92,6 +92,14 @@ var asset1 = Asset{
 	MutableData: map[string]interface{}{
 		"asdf": "1234",
 	},
+	Data: map[string]interface{}{
+		"img":         "QmZWg1mP2UNcSwhrYNVqjk16BnhcWCz3oAva8BfiTNB3J4",
+		"name":        "Silver Member",
+		"type":        "Wood",
+		"level":       float64(2),
+		"rarity":      "Uncommon",
+		"description": "This is a member card powered by Wood. When used by the farmer, it will increase the power and luck of the wood mining tools, and can mine the Farmer Coin that has been lost since ancient times.",
+	},
 	UpdatedAtBlock:    "171080009",
 	UpdatedAtTime:     "1646996870500",
 	TransferedAtBlock: "171080009",

@@ -15,6 +15,7 @@ type Asset struct {
 	Template       Template     `json:"template"`
 	BackedTokens   []Token      `json:"backed_tokens"`
 
+	Data          map[string]interface{} `json:"data"`
 	ImmutableData map[string]interface{} `json:"immutable_data"`
 	MutableData   map[string]interface{} `json:"mutable_data"`
 
