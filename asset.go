@@ -19,18 +19,18 @@ type Asset struct {
 	ImmutableData map[string]interface{} `json:"immutable_data"`
 	MutableData   map[string]interface{} `json:"mutable_data"`
 
-	BurnedByAccount string `json:"burned_by_account"`
-	BurnedAtBlock   string `json:"burned_at_block"`
-	BurnedAtTime    string `json:"burned_at_time"`
+	BurnedByAccount string   `json:"burned_by_account"`
+	BurnedAtBlock   string   `json:"burned_at_block"`
+	BurnedAtTime    UnixTime `json:"burned_at_time"`
 
-	UpdatedAtBlock string `json:"updated_at_block"`
-	UpdatedAtTime  string `json:"updated_at_time"`
+	UpdatedAtBlock string   `json:"updated_at_block"`
+	UpdatedAtTime  UnixTime `json:"updated_at_time"`
 
-	TransferedAtBlock string `json:"transferred_at_block"`
-	TransferedAtTime  string `json:"transferred_at_time"`
+	TransferedAtBlock string   `json:"transferred_at_block"`
+	TransferedAtTime  UnixTime `json:"transferred_at_time"`
 
-	MintedAtBlock string `json:"minted_at_block"`
-	MintedAtTime  string `json:"minted_at_time"`
+	MintedAtBlock string   `json:"minted_at_block"`
+	MintedAtTime  UnixTime `json:"minted_at_time"`
 }
 
 type ListingAsset struct {

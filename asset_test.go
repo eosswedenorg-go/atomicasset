@@ -101,11 +101,11 @@ var asset1 = Asset{
 		"description": "This is a member card powered by Wood. When used by the farmer, it will increase the power and luck of the wood mining tools, and can mine the Farmer Coin that has been lost since ancient times.",
 	},
 	UpdatedAtBlock:    "171080009",
-	UpdatedAtTime:     "1646996870500",
+	UpdatedAtTime:     UnixTime(1646996870500),
 	TransferedAtBlock: "171080009",
-	TransferedAtTime:  "1646996870500",
+	TransferedAtTime:  UnixTime(1646996870500),
 	MintedAtBlock:     "171080009",
-	MintedAtTime:      "1646996870500",
+	MintedAtTime:      UnixTime(1646996870500),
 	BackedTokens:      []Token{},
 }
 
