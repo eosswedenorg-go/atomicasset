@@ -64,18 +64,6 @@ type BuyOffer struct {
 
 // Transfer types
 
-type Transfer struct {
-	ID        string  `json:"transfer_id"`
-	Contract  string  `json:"contract"`
-	Sender    string  `json:"sender_name"`
-	Recipient string  `json:"recipient_name"`
-	Memo      string  `json:"memo"`
-	Assets    []Asset `json:"assets"`
-
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `Json:"created_at_time"`
-}
-
 type ListingTransfer struct {
 	ID        string         `json:"transfer_id"`
 	Contract  string         `json:"contract"`
