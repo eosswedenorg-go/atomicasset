@@ -20,25 +20,6 @@ type Log struct {
 
 // Offer types
 
-type Offer struct {
-	ID                  string  `json:"offer_id"`
-	Contract            string  `json:"contract"`
-	Sender              string  `json:"sender_name"`
-	Recipient           string  `json:"recipient_name"`
-	Memo                string  `json:"memo"`
-	State               int64   `json:"state"`
-	IsSenderContract    bool    `json:"is_sender_contract"`
-	IsRecipientContract bool    `json:"is_recipient_contract"`
-	SenderAssets        []Asset `json:"sender_assets"`
-	RecipientAssets     []Asset `json:"recipient_assets"`
-
-	UpdatedAtBlock string   `json:"updated_at_block"`
-	UpdatedAtTime  UnixTime `json:"updated_at_time"`
-
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `Json:"created_at_time"`
-}
-
 type ListingOffer struct {
 	ID                  string `json:"offer_id"`
 	Contract            string `json:"contract"`
