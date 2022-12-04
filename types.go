@@ -9,6 +9,14 @@ type Token struct {
 	Amount    string `json:"amount"`
 }
 
+type TokenPair struct {
+	ListingSymbol    string                 `json:"listing_symbol"`
+	SettlementSymbol string                 `json:"settlement_symbol"`
+	DelphiPairName   string                 `json:"delphi_pair_name"`
+	InvertDelphiPair bool                   `json:"invert_delphi_pair"`
+	Data             map[string]interface{} `json:"data"`
+}
+
 type Log struct {
 	ID             string                 `json:"log_id"`
 	TxID           string                 `json:"txid"`
