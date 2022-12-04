@@ -137,7 +137,7 @@ type AssetsResponse struct {
 	Data []Asset
 }
 
-type SalesResponse struct {
+type AssetSalesResponse struct {
 	APIResponse
 	Data []AssetSale
 }
@@ -186,8 +186,8 @@ func (c *Client) GetAssetLog(assetID string, params LogRequestParams) (AssetLogR
 }
 
 // GetAssetSales fetches "/atomicmarket/v1/assets/{asset_id}/sales" from API
-func (c *Client) GetAssetSales(assetID string, params AssetSalesRequestParams) (SalesResponse, error) {
-	var sales SalesResponse
+func (c *Client) GetAssetSales(assetID string, params AssetSalesRequestParams) (AssetSalesResponse, error) {
+	var sales AssetSalesResponse
 
 	r, err := c.fetch("GET", "/atomicmarket/v1/assets/"+assetID+"/sales", params, &sales.APIResponse)
 	if err == nil {
