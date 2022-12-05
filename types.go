@@ -26,6 +26,11 @@ type Log struct {
 	CreatedAtTime  UnixTime               `json:"created_at_time"`
 }
 
+type LogsResponse struct {
+	APIResponse
+	Data []Log
+}
+
 // Offer types
 
 type ListingOffer struct {
