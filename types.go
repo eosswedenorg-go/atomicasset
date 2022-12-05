@@ -89,31 +89,6 @@ type ListingTransfer struct {
 	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
-// Sale types
-
-type Sale struct {
-	ID               string     `json:"sales_id"`
-	MarketContract   string     `json:"market_contract"`
-	AsssetsContract  string     `json:"assets_contract"`
-	Seller           string     `json:"seller"`
-	Buyer            string     `json:"buyer"`
-	OfferID          string     `json:"offer_id"`
-	Price            Price      `json:"price"`
-	ListingPrice     int64      `json:"listing_price"`
-	ListingSymbol    string     `json:"listing_symbol"`
-	Assets           []Asset    `json:"assets"`
-	MakerMarketplace string     `json:"maker_marketplace,omitempty"`
-	TakerMarketplace string     `json:"taker_marketplace,omitempty"`
-	Collection       Collection `json:"collection"`
-	State            int64      `json:"state"`
-
-	UpdatedAtBlock string   `json:"updated_at_block"`
-	UpdatedAtTime  UnixTime `json:"updated_at_time"`
-
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `Json:"created_at_time"`
-}
-
 // Action types
 
 type Auction struct {
