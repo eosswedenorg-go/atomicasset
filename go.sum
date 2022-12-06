@@ -151,8 +151,6 @@ github.com/shurcooL/reactions v0.0.0-20181006231557-f2e0b4ca5b82/go.mod h1:TCR1l
 github.com/shurcooL/sanitized_anchor_name v0.0.0-20170918181015-86672fcb3f95/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=
 github.com/shurcooL/users v0.0.0-20180125191416-49c67e49c537/go.mod h1:QJTqeLYEDaXHZDBsXlPCDqdhQuJkuw4NOtaxYe3xii4=
 github.com/shurcooL/webdavfs v0.0.0-20170829043945-18c3829fa133/go.mod h1:hKmq5kWdCj2z2KEozexVbfEZIWiTjhE0+UjmZgPqehw=
-github.com/sonh/qs v0.6.0 h1:MS9WlVLpqkePKgtFnkPR9xZE+DxE7nSraWiG1vxs8eo=
-github.com/sonh/qs v0.6.0/go.mod h1:ywKyX7vSo9R5dfgEQSCZ75tFzNkVUJZyK3/W6qGeHMQ=
 github.com/sonh/qs v0.6.2 h1:ao0XNj2hXNdLW9Xk0L8zzEj1s3DjI7bDdG5QU8WUyxY=
 github.com/sonh/qs v0.6.2/go.mod h1:ywKyX7vSo9R5dfgEQSCZ75tFzNkVUJZyK3/W6qGeHMQ=
 github.com/sourcegraph/annotate v0.0.0-20160123013949-f4cad6c6324d/go.mod h1:UdhH50NIW0fCiwBSr0co2m7BnFLdv4fQTgdqdJTHFeE=
