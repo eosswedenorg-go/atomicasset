@@ -63,7 +63,7 @@ func TestRequest_SalesRequestParams(t *testing.T) {
 		{"Minter", SalesRequestParams{Minter: "alice"}, url.Values{"minter": []string{"alice"}}},
 		{"Burner", SalesRequestParams{Burner: "bob"}, url.Values{"burner": []string{"bob"}}},
 
-		{"IDs", SalesRequestParams{IDs: ReqIntList{1, 2, 3}}, url.Values{"ids": []string{"1,2,3"}}},
+		{"IDs", SalesRequestParams{IDs: []int{1, 2, 3}}, url.Values{"ids": []string{"1,2,3"}}},
 
 		{"LowerBound", SalesRequestParams{LowerBound: "1000"}, url.Values{"lower_bound": []string{"1000"}}},
 		{"UpperBound", SalesRequestParams{UpperBound: "2000"}, url.Values{"upper_bound": []string{"2000"}}},
@@ -130,7 +130,7 @@ func TestRequest_SalesTemplateRequestParams(t *testing.T) {
 
 		{"InitialReceiver", SalesTemplateRequestParams{InitialReceiver: "recv"}, url.Values{"initial_receiver": []string{"recv"}}},
 
-		{"IDs", SalesTemplateRequestParams{IDs: ReqIntList{1, 2, 3}}, url.Values{"ids": []string{"1,2,3"}}},
+		{"IDs", SalesTemplateRequestParams{IDs: []int{1, 2, 3}}, url.Values{"ids": []string{"1,2,3"}}},
 
 		{"LowerBound", SalesTemplateRequestParams{LowerBound: "1000"}, url.Values{"lower_bound": []string{"1000"}}},
 		{"UpperBound", SalesTemplateRequestParams{UpperBound: "2000"}, url.Values{"upper_bound": []string{"2000"}}},

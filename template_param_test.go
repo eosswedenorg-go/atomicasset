@@ -36,7 +36,7 @@ func TestRequest_TemplateRequestParams(t *testing.T) {
 
 		{"Match", TemplateRequestParams{Match: "value"}, url.Values{"match": []string{"value"}}},
 
-		{"IDs", TemplateRequestParams{IDs: ReqStringList{"6", "7", "8"}}, url.Values{"ids": []string{"6,7,8"}}},
+		{"IDs", TemplateRequestParams{IDs: []string{"6", "7", "8"}}, url.Values{"ids": []string{"6,7,8"}}},
 
 		{"LowerBound", TemplateRequestParams{LowerBound: "1000"}, url.Values{"lower_bound": []string{"1000"}}},
 		{"UpperBound", TemplateRequestParams{UpperBound: "2000"}, url.Values{"upper_bound": []string{"2000"}}},

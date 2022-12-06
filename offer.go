@@ -43,27 +43,27 @@ const (
 
 type OfferRequestParams struct {
 	Account                 string          `qs:"account,omitempty"`
-	Sender                  ReqStringList   `qs:"sender,omitempty"`
-	Recipient               ReqStringList   `qs:"recipient,omitempty"`
+	Sender                  ReqList[string] `qs:"sender,omitempty"`
+	Recipient               ReqList[string] `qs:"recipient,omitempty"`
 	Memo                    string          `qs:"memo,omitempty"`
 	MatchMemo               string          `qs:"match_memo,omitempty"`
 	State                   OfferState      `qs:"state,omitempty"`
 	IsRecipientContract     bool            `qs:"is_recipient_contract,omitempty"`
-	AssetID                 ReqIntList      `qs:"asset_id,omitempty"`
-	TemplateID              ReqIntList      `qs:"template_id,omitempty"`
-	SchemaName              ReqStringList   `qs:"schema_name,omitempty"`
-	CollectionName          ReqStringList   `qs:"collection_name,omitempty"`
-	AccountWhitelist        ReqStringList   `qs:"account_whitelist,omitempty"`
-	AccountBlacklist        ReqStringList   `qs:"account_blacklist,omitempty"`
-	SenderAssetWhitelist    ReqStringList   `qs:"sender_asset_whitelist,omitempty"`
-	SenderAssetBlacklist    ReqStringList   `qs:"sender_asset_blacklist,omitempty"`
-	RecipientAssetWhitelist ReqStringList   `qs:"recipient_asset_whitelist,omitempty"`
-	RecipientAssetBlacklist ReqStringList   `qs:"recipient_asset_blacklist,omitempty"`
-	CollectionWhitelist     ReqStringList   `qs:"collection_whitelist,omitempty"`
-	CollectionBlacklist     ReqStringList   `qs:"collection_blacklist,omitempty"`
+	AssetID                 ReqList[int]    `qs:"asset_id,omitempty"`
+	TemplateID              ReqList[int]    `qs:"template_id,omitempty"`
+	SchemaName              ReqList[string] `qs:"schema_name,omitempty"`
+	CollectionName          ReqList[string] `qs:"collection_name,omitempty"`
+	AccountWhitelist        ReqList[string] `qs:"account_whitelist,omitempty"`
+	AccountBlacklist        ReqList[string] `qs:"account_blacklist,omitempty"`
+	SenderAssetWhitelist    ReqList[string] `qs:"sender_asset_whitelist,omitempty"`
+	SenderAssetBlacklist    ReqList[string] `qs:"sender_asset_blacklist,omitempty"`
+	RecipientAssetWhitelist ReqList[string] `qs:"recipient_asset_whitelist,omitempty"`
+	RecipientAssetBlacklist ReqList[string] `qs:"recipient_asset_blacklist,omitempty"`
+	CollectionWhitelist     ReqList[string] `qs:"collection_whitelist,omitempty"`
+	CollectionBlacklist     ReqList[string] `qs:"collection_blacklist,omitempty"`
 	HideContracts           bool            `qs:"hide_contracts,omitempty"`
 	HideEmptyOffers         bool            `qs:"hide_empty_offers,omitempty"`
-	IDs                     ReqStringList   `qs:"ids,omitempty"`
+	IDs                     ReqList[string] `qs:"ids,omitempty"`
 	LowerBound              string          `qs:"lower_bound,omitempty"`
 	UpperBound              string          `qs:"upper_bound,omitempty"`
 	Before                  int             `qs:"before,omitempty"`

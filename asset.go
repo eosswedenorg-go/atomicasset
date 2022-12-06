@@ -86,18 +86,18 @@ type AssetSale struct {
 
 // AssetsRequestParams holds the parameters for an Asset request
 type AssetsRequestParams struct {
-	CollectionName          string        `qs:"collection_name,omitempty"`
-	CollectionBlacklist     ReqStringList `qs:"collection_blacklist,omitempty"`
-	CollectionWhitelist     ReqStringList `qs:"collection_whitelist,omitempty"`
-	SchemaName              string        `qs:"schema_name,omitempty"`
-	TemplateID              int           `qs:"template_id,omitempty"`
-	TemplateWhitelist       ReqIntList    `qs:"template_whitelist,omitempty"`
-	TemplateBlacklist       ReqIntList    `qs:"template_blacklist,omitempty"`
-	Owner                   string        `qs:"owner,omitempty"`
-	Match                   string        `qs:"match,omitempty"`
-	MatchImmutableName      string        `qs:"match_immutable_name,omitempty"`
-	MatchMutableName        string        `qs:"match_mutable_name,omitempty"`
-	HideTemplatesByAccounts string        `qs:"hide_templates_by_accounts,omitempty"`
+	CollectionName          string          `qs:"collection_name,omitempty"`
+	CollectionBlacklist     ReqList[string] `qs:"collection_blacklist,omitempty"`
+	CollectionWhitelist     ReqList[string] `qs:"collection_whitelist,omitempty"`
+	SchemaName              string          `qs:"schema_name,omitempty"`
+	TemplateID              int             `qs:"template_id,omitempty"`
+	TemplateWhitelist       ReqList[int]    `qs:"template_whitelist,omitempty"`
+	TemplateBlacklist       ReqList[int]    `qs:"template_blacklist,omitempty"`
+	Owner                   string          `qs:"owner,omitempty"`
+	Match                   string          `qs:"match,omitempty"`
+	MatchImmutableName      string          `qs:"match_immutable_name,omitempty"`
+	MatchMutableName        string          `qs:"match_mutable_name,omitempty"`
+	HideTemplatesByAccounts string          `qs:"hide_templates_by_accounts,omitempty"`
 
 	IsTransferable          bool `qs:"is_transferable,omitempty"`
 	IsBurnable              bool `qs:"is_burnable,omitempty"`

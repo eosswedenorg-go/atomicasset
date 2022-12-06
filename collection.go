@@ -49,9 +49,9 @@ type CollectionsRequestParams struct {
 	Match             string               `qs:"match,omitempty"`
 	AuthorizedAccount string               `qs:"authorized_account,omitempty"`
 	NotifyAccount     string               `qs:"notify_account,omitempty"`
-	Blacklist         ReqStringList        `qs:"collection_blacklist,omitempty"`
-	Whitelist         ReqStringList        `qs:"collection_whitelist,omitempty"`
-	IDs               ReqIntList           `qs:"ids,omitempty"`
+	Blacklist         ReqList[string]      `qs:"collection_blacklist,omitempty"`
+	Whitelist         ReqList[string]      `qs:"collection_whitelist,omitempty"`
+	IDs               ReqList[int]         `qs:"ids,omitempty"`
 	LowerBound        string               `qs:"lower_bound,omitempty"`
 	UpperBound        string               `qs:"upper_bound,omitempty"`
 	Before            int                  `qs:"before,omitempty"`
@@ -63,11 +63,11 @@ type CollectionsRequestParams struct {
 }
 
 type CollectionLogsRequestParams struct {
-	Page            int           `qs:"page,omitempty"`
-	Limit           int           `qs:"limit,omitempty"`
-	Order           SortOrder     `qs:"order,omitempty"`
-	ActionBlacklist ReqStringList `qs:"action_blacklist,omitempty"`
-	ActionWhitelist ReqStringList `qs:"action_whitelist,omitempty"`
+	Page            int             `qs:"page,omitempty"`
+	Limit           int             `qs:"limit,omitempty"`
+	Order           SortOrder       `qs:"order,omitempty"`
+	ActionBlacklist ReqList[string] `qs:"action_blacklist,omitempty"`
+	ActionWhitelist ReqList[string] `qs:"action_whitelist,omitempty"`
 }
 
 // Responses

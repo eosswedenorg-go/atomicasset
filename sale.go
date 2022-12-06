@@ -70,50 +70,50 @@ const (
 )
 
 type SalesRequestParams struct {
-	State               SalesState     `qs:"state,omitempty"`
-	MaxAssets           int            `qs:"max_assets,omitempty"`
-	MinAssets           int            `qs:"min_assets,omitempty"`
-	ShowSellerContract  string         `qs:"show_seller_contract,omitempty"`
-	ContractBlacklist   ReqStringList  `qs:"contract_blacklist,omitempty"`
-	ContractWhitelist   ReqStringList  `qs:"contract_whitelist,omitempty"`
-	SellerBlacklist     ReqStringList  `qs:"seller_blacklist,omitempty"`
-	BuyerBlacklist      ReqStringList  `qs:"buyer_blacklist,omitempty"`
-	AssetId             int            `qs:"asset_id,omitempty"`
-	Marketplace         ReqStringList  `qs:"marketplace,omitempty"`
-	MakerMarketplace    ReqStringList  `qs:"maker_marketplace,omitempty"`
-	TakerMarketplace    ReqStringList  `qs:"taker_marketplace,omitempty"`
-	Symbol              string         `qs:"symbol,omitempty"`
-	Account             string         `qs:"account,omitempty"`
-	Seller              ReqStringList  `qs:"seller,omitempty"`
-	Buyer               ReqStringList  `qs:"buyer,omitempty"`
-	MinPrice            int            `qs:"min_price,omitempty"`
-	MaxPrice            int            `qs:"max_price,omitempty"`
-	MinTemplateMint     int            `qs:"min_template_mint,omitempty"`
-	MaxTemplateMint     int            `qs:"max_template_mint,omitempty"`
-	CollectionName      string         `qs:"collection_name,omitempty"`
-	CollectionBlacklist ReqStringList  `qs:"collection_blacklist,omitempty"`
-	CollectionWhitelist ReqStringList  `qs:"collection_whitelist,omitempty"`
-	SchemaName          string         `qs:"schema_name,omitempty"`
-	TemplateID          int            `qs:"template_id,omitempty"`
-	Burned              bool           `qs:"burned,omitempty"`
-	Owner               string         `qs:"owner,omitempty"`
-	Match               string         `qs:"match,omitempty"`
-	Search              string         `qs:"search,omitempty"`
-	MatchImmutableName  string         `qs:"match_immutable_name,omitempty"`
-	MatchMutableName    string         `qs:"match_mutable_name,omitempty"`
-	IsTransferable      bool           `qs:"is_transferable,omitempty"`
-	IsBurnable          bool           `qs:"is_burnable,omitempty"`
-	Minter              string         `qs:"minter,omitempty"`
-	Burner              string         `qs:"burner,omitempty"`
-	IDs                 ReqIntList     `qs:"ids,omitempty"`
-	LowerBound          string         `qs:"lower_bound,omitempty"`
-	UpperBound          string         `qs:"upper_bound,omitempty"`
-	Before              int            `qs:"before,omitempty"`
-	After               int            `qs:"after,omitempty"`
-	Page                int            `qs:"page,omitempty"`
-	Limit               int            `qs:"limit,omitempty"`
-	Order               SortOrder      `qs:"order,omitempty"`
-	Sort                SaleSortColumn `qs:"sort,omitempty"`
+	State               SalesState      `qs:"state,omitempty"`
+	MaxAssets           int             `qs:"max_assets,omitempty"`
+	MinAssets           int             `qs:"min_assets,omitempty"`
+	ShowSellerContract  string          `qs:"show_seller_contract,omitempty"`
+	ContractBlacklist   ReqList[string] `qs:"contract_blacklist,omitempty"`
+	ContractWhitelist   ReqList[string] `qs:"contract_whitelist,omitempty"`
+	SellerBlacklist     ReqList[string] `qs:"seller_blacklist,omitempty"`
+	BuyerBlacklist      ReqList[string] `qs:"buyer_blacklist,omitempty"`
+	AssetId             int             `qs:"asset_id,omitempty"`
+	Marketplace         ReqList[string] `qs:"marketplace,omitempty"`
+	MakerMarketplace    ReqList[string] `qs:"maker_marketplace,omitempty"`
+	TakerMarketplace    ReqList[string] `qs:"taker_marketplace,omitempty"`
+	Symbol              string          `qs:"symbol,omitempty"`
+	Account             string          `qs:"account,omitempty"`
+	Seller              ReqList[string] `qs:"seller,omitempty"`
+	Buyer               ReqList[string] `qs:"buyer,omitempty"`
+	MinPrice            int             `qs:"min_price,omitempty"`
+	MaxPrice            int             `qs:"max_price,omitempty"`
+	MinTemplateMint     int             `qs:"min_template_mint,omitempty"`
+	MaxTemplateMint     int             `qs:"max_template_mint,omitempty"`
+	CollectionName      string          `qs:"collection_name,omitempty"`
+	CollectionBlacklist ReqList[string] `qs:"collection_blacklist,omitempty"`
+	CollectionWhitelist ReqList[string] `qs:"collection_whitelist,omitempty"`
+	SchemaName          string          `qs:"schema_name,omitempty"`
+	TemplateID          int             `qs:"template_id,omitempty"`
+	Burned              bool            `qs:"burned,omitempty"`
+	Owner               string          `qs:"owner,omitempty"`
+	Match               string          `qs:"match,omitempty"`
+	Search              string          `qs:"search,omitempty"`
+	MatchImmutableName  string          `qs:"match_immutable_name,omitempty"`
+	MatchMutableName    string          `qs:"match_mutable_name,omitempty"`
+	IsTransferable      bool            `qs:"is_transferable,omitempty"`
+	IsBurnable          bool            `qs:"is_burnable,omitempty"`
+	Minter              string          `qs:"minter,omitempty"`
+	Burner              string          `qs:"burner,omitempty"`
+	IDs                 ReqList[int]    `qs:"ids,omitempty"`
+	LowerBound          string          `qs:"lower_bound,omitempty"`
+	UpperBound          string          `qs:"upper_bound,omitempty"`
+	Before              int             `qs:"before,omitempty"`
+	After               int             `qs:"after,omitempty"`
+	Page                int             `qs:"page,omitempty"`
+	Limit               int             `qs:"limit,omitempty"`
+	Order               SortOrder       `qs:"order,omitempty"`
+	Sort                SaleSortColumn  `qs:"sort,omitempty"`
 }
 
 type SaleTemplateSortColumn string
@@ -128,8 +128,8 @@ type SalesTemplateRequestParams struct {
 	MinPrice            int                    `qs:"min_price,omitempty"`
 	MaxPrice            int                    `qs:"max_price,omitempty"`
 	CollectionName      string                 `qs:"collection_name,omitempty"`
-	CollectionBlacklist ReqStringList          `qs:"collection_blacklist,omitempty"`
-	CollectionWhitelist ReqStringList          `qs:"collection_whitelist,omitempty"`
+	CollectionBlacklist ReqList[string]        `qs:"collection_blacklist,omitempty"`
+	CollectionWhitelist ReqList[string]        `qs:"collection_whitelist,omitempty"`
 	SchemaName          string                 `qs:"schema_name,omitempty"`
 	TemplateID          int                    `qs:"template_id,omitempty"`
 	Burned              bool                   `qs:"burned,omitempty"`
@@ -143,7 +143,7 @@ type SalesTemplateRequestParams struct {
 	Minter              string                 `qs:"minter,omitempty"`
 	Burner              string                 `qs:"burner,omitempty"`
 	InitialReceiver     string                 `qs:"initial_receiver,omitempty"`
-	IDs                 ReqIntList             `qs:"ids,omitempty"`
+	IDs                 ReqList[int]           `qs:"ids,omitempty"`
 	LowerBound          string                 `qs:"lower_bound,omitempty"`
 	UpperBound          string                 `qs:"upper_bound,omitempty"`
 	Before              int                    `qs:"before,omitempty"`

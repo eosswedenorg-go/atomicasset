@@ -18,8 +18,8 @@ func TestRequest_LogRequestParams(t *testing.T) {
 		{"Page", LogRequestParams{Page: 134}, url.Values{"page": []string{"134"}}},
 		{"Limit", LogRequestParams{Limit: 50}, url.Values{"limit": []string{"50"}}},
 		{"Order", LogRequestParams{Order: SortDescending}, url.Values{"order": []string{"desc"}}},
-		{"Whitelist", LogRequestParams{ActionWhitelist: ReqStringList{"one", "two"}}, url.Values{"action_whitelist": []string{"one,two"}}},
-		{"Blacklist", LogRequestParams{ActionBlacklist: ReqStringList{"one", "two"}}, url.Values{"action_blacklist": []string{"one,two"}}},
+		{"Whitelist", LogRequestParams{ActionWhitelist: []string{"one", "two"}}, url.Values{"action_whitelist": []string{"one,two"}}},
+		{"Blacklist", LogRequestParams{ActionBlacklist: []string{"one", "two"}}, url.Values{"action_blacklist": []string{"one,two"}}},
 		{"PageOrderLimit", LogRequestParams{Page: 2, Limit: 30, Order: SortAscending}, url.Values{"order": []string{"asc"}, "page": []string{"2"}, "limit": []string{"30"}}},
 	}
 
@@ -33,10 +33,10 @@ func TestRequest_LogRequestParams(t *testing.T) {
 	}
 }
 
-func TestReqStringList_EncodeParam(t *testing.T) {
+func TestReqListString_EncodeParam(t *testing.T) {
 	tests := []struct {
 		name    string
-		cs      ReqStringList
+		cs      ReqList[string]
 		want    string
 		wantErr bool
 	}{
@@ -48,20 +48,20 @@ func TestReqStringList_EncodeParam(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := tt.cs.EncodeParam()
 			if (err != nil) != tt.wantErr {
-				t.Errorf("ReqStringList.EncodeParam() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ReqList[string].EncodeParam() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if got != tt.want {
-				t.Errorf("ReqStringList.EncodeParam() = %v, want %v", got, tt.want)
+				t.Errorf("ReqList[string].EncodeParam() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestReqStringList_IsZero(t *testing.T) {
+func TestReqListString_IsZero(t *testing.T) {
 	tests := []struct {
 		name string
-		cs   ReqStringList
+		cs   ReqList[string]
 		want bool
 	}{
 		{"Empty", []string{}, true},
@@ -71,16 +71,16 @@ func TestReqStringList_IsZero(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.cs.IsZero(); got != tt.want {
-				t.Errorf("ReqStringList.IsZero() = %v, want %v", got, tt.want)
+				t.Errorf("ReqList[string].IsZero() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestReqIntList_EncodeParam(t *testing.T) {
+func TestReqListInt_EncodeParam(t *testing.T) {
 	tests := []struct {
 		name    string
-		cs      ReqIntList
+		cs      ReqList[int]
 		want    string
 		wantErr bool
 	}{
@@ -92,20 +92,20 @@ func TestReqIntList_EncodeParam(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := tt.cs.EncodeParam()
 			if (err != nil) != tt.wantErr {
-				t.Errorf("ReqIntList.EncodeParam() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ReqList[int].EncodeParam() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if got != tt.want {
-				t.Errorf("ReqIntList.EncodeParam() = %v, want %v", got, tt.want)
+				t.Errorf("ReqList[int].EncodeParam() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestReqIntList_IsZero(t *testing.T) {
+func TestReqListInt_IsZero(t *testing.T) {
 	tests := []struct {
 		name string
-		cs   ReqIntList
+		cs   ReqList[int]
 		want bool
 	}{
 		{"Empty", []int{}, true},
@@ -115,7 +115,7 @@ func TestReqIntList_IsZero(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.cs.IsZero(); got != tt.want {
-				t.Errorf("ReqIntList.IsZero() = %v, want %v", got, tt.want)
+				t.Errorf("ReqList[int].IsZero() = %v, want %v", got, tt.want)
 			}
 		})
 	}

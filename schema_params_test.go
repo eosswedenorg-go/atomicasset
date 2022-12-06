@@ -21,10 +21,10 @@ func TestSchemasRequestParams(t *testing.T) {
 		{"AuthorizedAccount", SchemasRequestParams{AuthorizedAccount: "bob"}, url.Values{"authorized_account": []string{"bob"}}},
 		{"NotifiedAccount", SchemasRequestParams{NotifyAccount: "cesar"}, url.Values{"notify_account": []string{"cesar"}}},
 
-		{"Blacklist", SchemasRequestParams{Blacklist: ReqStringList{"col1", "col2"}}, url.Values{"collection_blacklist": []string{"col1,col2"}}},
-		{"Whitelist", SchemasRequestParams{Whitelist: ReqStringList{"col3", "col4"}}, url.Values{"collection_whitelist": []string{"col3,col4"}}},
+		{"Blacklist", SchemasRequestParams{Blacklist: []string{"col1", "col2"}}, url.Values{"collection_blacklist": []string{"col1,col2"}}},
+		{"Whitelist", SchemasRequestParams{Whitelist: []string{"col3", "col4"}}, url.Values{"collection_whitelist": []string{"col3,col4"}}},
 
-		{"IDs", SchemasRequestParams{IDs: ReqIntList{1, 2, 3}}, url.Values{"ids": []string{"1,2,3"}}},
+		{"IDs", SchemasRequestParams{IDs: []int{1, 2, 3}}, url.Values{"ids": []string{"1,2,3"}}},
 
 		{"LowerBound", SchemasRequestParams{LowerBound: "1000"}, url.Values{"lower_bound": []string{"1000"}}},
 		{"UpperBound", SchemasRequestParams{UpperBound: "2000"}, url.Values{"upper_bound": []string{"2000"}}},

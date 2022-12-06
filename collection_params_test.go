@@ -21,10 +21,10 @@ func TestRequest_CollectionsRequestParams(t *testing.T) {
 		{"AuthorizedAccount", CollectionsRequestParams{AuthorizedAccount: "bob"}, url.Values{"authorized_account": []string{"bob"}}},
 		{"NotifiedAccount", CollectionsRequestParams{NotifyAccount: "cesar"}, url.Values{"notify_account": []string{"cesar"}}},
 
-		{"Blacklist", CollectionsRequestParams{Blacklist: ReqStringList{"col1"}}, url.Values{"collection_blacklist": []string{"col1"}}},
-		{"Whitelist", CollectionsRequestParams{Whitelist: ReqStringList{"col3"}}, url.Values{"collection_whitelist": []string{"col3"}}},
+		{"Blacklist", CollectionsRequestParams{Blacklist: []string{"col1"}}, url.Values{"collection_blacklist": []string{"col1"}}},
+		{"Whitelist", CollectionsRequestParams{Whitelist: []string{"col3"}}, url.Values{"collection_whitelist": []string{"col3"}}},
 
-		{"IDs", CollectionsRequestParams{IDs: ReqIntList{1, 2, 3}}, url.Values{"ids": []string{"1,2,3"}}},
+		{"IDs", CollectionsRequestParams{IDs: []int{1, 2, 3}}, url.Values{"ids": []string{"1,2,3"}}},
 
 		{"LowerBound", CollectionsRequestParams{LowerBound: "1000"}, url.Values{"lower_bound": []string{"1000"}}},
 		{"UpperBound", CollectionsRequestParams{UpperBound: "2000"}, url.Values{"upper_bound": []string{"2000"}}},

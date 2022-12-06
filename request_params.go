@@ -21,11 +21,11 @@ const (
 
 // LogRequestParams holds the parameters for an Log request
 type LogRequestParams struct {
-	Page            int           `qs:"page,omitempty"`
-	Limit           int           `qs:"limit,omitempty"`
-	Order           SortOrder     `qs:"order,omitempty"`
-	ActionWhitelist ReqStringList `qs:"action_whitelist,omitempty"`
-	ActionBlacklist ReqStringList `qs:"action_blacklist,omitempty"`
+	Page            int             `qs:"page,omitempty"`
+	Limit           int             `qs:"limit,omitempty"`
+	Order           SortOrder       `qs:"order,omitempty"`
+	ActionWhitelist ReqList[string] `qs:"action_whitelist,omitempty"`
+	ActionBlacklist ReqList[string] `qs:"action_blacklist,omitempty"`
 }
 
 // ReqStringList type is used to encode string slices into a single string
@@ -36,28 +36,16 @@ type LogRequestParams struct {
 
 // atomicassets calls usually wants comma separated strings.
 
-type ReqStringList []string
+type ReqList[T any] []T
 
-func (cs ReqStringList) EncodeParam() (string, error) {
-	return strings.Join(cs, ","), nil
-}
-
-func (cs ReqStringList) IsZero() bool {
-	return len(cs) < 1
-}
-
-// Same as ReqStringList type but for integers
-
-type ReqIntList []int
-
-func (cs ReqIntList) EncodeParam() (string, error) {
-	l := []string{}
-	for _, v := range cs {
-		l = append(l, fmt.Sprint(v))
+func (l ReqList[T]) EncodeParam() (string, error) {
+	f := []string{}
+	for _, v := range l {
+		f = append(f, fmt.Sprint(v))
 	}
-	return strings.Join(l, ","), nil
+	return strings.Join(f, ","), nil
 }
 
-func (cs ReqIntList) IsZero() bool {
-	return len(cs) < 1
+func (l ReqList[T]) IsZero() bool {
+	return len(l) < 1
 }

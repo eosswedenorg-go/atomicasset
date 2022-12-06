@@ -47,8 +47,8 @@ const (
 type TemplateRequestParams struct {
 	SchemaName          string           `qs:"schema_name,omitempty"`
 	CollectionName      string           `qs:"collection_name,omitempty"`
-	CollectionBlacklist ReqStringList    `qs:"collection_blacklist,omitempty"`
-	CollectionWhitelist ReqStringList    `qs:"collection_whitelist,omitempty"`
+	CollectionBlacklist ReqList[string]  `qs:"collection_blacklist,omitempty"`
+	CollectionWhitelist ReqList[string]  `qs:"collection_whitelist,omitempty"`
 	IssuedSypply        int              `qs:"issued_supply,omitempty"`
 	MinIssuedSupply     int              `qs:"min_issued_supply,omitempty"`
 	MaxIssuedSupply     int              `qs:"max_issued_supply,omitempty"`
@@ -58,7 +58,7 @@ type TemplateRequestParams struct {
 	IsTransferable      bool             `qs:"is_transferable,omitempty"`
 	AuthorizedAccount   string           `qs:"authorized_account,omitempty"`
 	Match               string           `qs:"match,omitempty"`
-	IDs                 ReqStringList    `qs:"ids,omitempty"`
+	IDs                 ReqList[string]  `qs:"ids,omitempty"`
 	LowerBound          string           `qs:"lower_bound,omitempty"`
 	UpperBound          string           `qs:"upper_bound,omitempty"`
 	Before              int              `qs:"before,omitempty"`

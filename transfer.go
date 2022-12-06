@@ -17,26 +17,26 @@ type Transfer struct {
 // Request Parameters
 
 type TransferRequestParams struct {
-	Account             ReqStringList `qs:"account,omitempty"`
-	Sender              ReqStringList `qs:"sender,omitempty"`
-	Recipient           ReqStringList `qs:"recipient,omitempty"`
-	Memo                string        `qs:"memo,omitempty"`
-	MatchMemo           string        `qs:"match_memo,omitempty"`
-	AssetID             ReqIntList    `qs:"asset_id,omitempty"`
-	TemplateID          ReqIntList    `qs:"template_id,omitempty"`
-	SchemaName          ReqStringList `qs:"schema_name,omitempty"`
-	CollectionName      ReqStringList `qs:"collection_name,omitempty"`
-	CollectionWhitelist ReqStringList `qs:"collection_whitelist,omitempty"`
-	CollectionBlacklist ReqStringList `qs:"collection_blacklist,omitempty"`
-	HideContracts       bool          `qs:"hide_contracts,omitempty"`
-	IDs                 ReqStringList `qs:"ids,omitempty"`
-	LowerBound          string        `qs:"lower_bound,omitempty"`
-	UpperBound          string        `qs:"upper_bound,omitempty"`
-	Before              int           `qs:"before,omitempty"`
-	After               int           `qs:"after,omitempty"`
-	Page                int           `qs:"page,omitempty"`
-	Limit               int           `qs:"limit,omitempty"`
-	Order               SortOrder     `qs:"order,omitempty"`
+	Account             ReqList[string] `qs:"account,omitempty"`
+	Sender              ReqList[string] `qs:"sender,omitempty"`
+	Recipient           ReqList[string] `qs:"recipient,omitempty"`
+	Memo                string          `qs:"memo,omitempty"`
+	MatchMemo           string          `qs:"match_memo,omitempty"`
+	AssetID             ReqList[int]    `qs:"asset_id,omitempty"`
+	TemplateID          ReqList[int]    `qs:"template_id,omitempty"`
+	SchemaName          ReqList[string] `qs:"schema_name,omitempty"`
+	CollectionName      ReqList[string] `qs:"collection_name,omitempty"`
+	CollectionWhitelist ReqList[string] `qs:"collection_whitelist,omitempty"`
+	CollectionBlacklist ReqList[string] `qs:"collection_blacklist,omitempty"`
+	HideContracts       bool            `qs:"hide_contracts,omitempty"`
+	IDs                 ReqList[string] `qs:"ids,omitempty"`
+	LowerBound          string          `qs:"lower_bound,omitempty"`
+	UpperBound          string          `qs:"upper_bound,omitempty"`
+	Before              int             `qs:"before,omitempty"`
+	After               int             `qs:"after,omitempty"`
+	Page                int             `qs:"page,omitempty"`
+	Limit               int             `qs:"limit,omitempty"`
+	Order               SortOrder       `qs:"order,omitempty"`
 
 	// Sort parameter exists but only has one value "created" that also is the default.
 	// So skip that for now until more values are added.
