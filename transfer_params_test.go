@@ -33,7 +33,7 @@ func TestRequest_TransferRequestParams(t *testing.T) {
 
 		{"HideContracts", TransferRequestParams{HideContracts: true}, url.Values{"hide_contracts": []string{"true"}}},
 
-		{"IDs", TransferRequestParams{IDs: []string{"6", "7", "8"}}, url.Values{"ids": []string{"6,7,8"}}},
+		{"IDs", TransferRequestParams{IDs: []int{6, 7, 8}}, url.Values{"ids": []string{"6,7,8"}}},
 
 		{"LowerBound", TransferRequestParams{LowerBound: "1000"}, url.Values{"lower_bound": []string{"1000"}}},
 		{"UpperBound", TransferRequestParams{UpperBound: "2000"}, url.Values{"upper_bound": []string{"2000"}}},

@@ -50,7 +50,7 @@ func TestRequest_OfferRequestParams(t *testing.T) {
 		{"HideContracts", OfferRequestParams{HideContracts: true}, url.Values{"hide_contracts": []string{"true"}}},
 		{"HideEmptyOffers", OfferRequestParams{HideEmptyOffers: true}, url.Values{"hide_empty_offers": []string{"true"}}},
 
-		{"IDs", OfferRequestParams{IDs: []string{"6", "7", "8"}}, url.Values{"ids": []string{"6,7,8"}}},
+		{"IDs", OfferRequestParams{IDs: []int{6, 7, 8}}, url.Values{"ids": []string{"6,7,8"}}},
 
 		{"LowerBound", OfferRequestParams{LowerBound: "1000"}, url.Values{"lower_bound": []string{"1000"}}},
 		{"UpperBound", OfferRequestParams{UpperBound: "2000"}, url.Values{"upper_bound": []string{"2000"}}},

@@ -63,7 +63,7 @@ type OfferRequestParams struct {
 	CollectionBlacklist     ReqList[string] `qs:"collection_blacklist,omitempty"`
 	HideContracts           bool            `qs:"hide_contracts,omitempty"`
 	HideEmptyOffers         bool            `qs:"hide_empty_offers,omitempty"`
-	IDs                     ReqList[string] `qs:"ids,omitempty"`
+	IDs                     ReqList[int]    `qs:"ids,omitempty"`
 	LowerBound              string          `qs:"lower_bound,omitempty"`
 	UpperBound              string          `qs:"upper_bound,omitempty"`
 	Before                  int             `qs:"before,omitempty"`

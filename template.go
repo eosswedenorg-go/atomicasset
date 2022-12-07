@@ -58,7 +58,7 @@ type TemplateRequestParams struct {
 	IsTransferable      bool             `qs:"is_transferable,omitempty"`
 	AuthorizedAccount   string           `qs:"authorized_account,omitempty"`
 	Match               string           `qs:"match,omitempty"`
-	IDs                 ReqList[string]  `qs:"ids,omitempty"`
+	IDs                 ReqList[int]     `qs:"ids,omitempty"`
 	LowerBound          string           `qs:"lower_bound,omitempty"`
 	UpperBound          string           `qs:"upper_bound,omitempty"`
 	Before              int              `qs:"before,omitempty"`
