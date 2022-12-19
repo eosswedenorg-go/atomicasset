@@ -89,13 +89,6 @@ type ListingTransfer struct {
 	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
-// Action types
-
-type Auction struct {
-	ID             string `json:"action_id"`
-	MarketContract string `json:"market_contract"`
-}
-
 // Marketplace types
 
 type MarketPlace struct {
