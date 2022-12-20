@@ -67,15 +67,6 @@ type ListingTransfer struct {
 	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
-// Marketplace types
-
-type MarketPlace struct {
-	Name           string   `json:"marketplace_name"`
-	Creator        string   `json:"creator"`
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `Json:"created_at_time"`
-}
-
 // Price types
 
 type Price struct {
