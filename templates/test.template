@@ -1,0 +1,36 @@
+package atomicasset
+
+import (
+	"net/http"
+	"net/http/httptest"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestAPICall(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+		assert.Equal(t, "{url}", req.URL.String())
+
+		payload := `{}`
+
+		res.Header().Add("Content-type", "application/json; charset=utf-8")
+		_, err := res.Write([]byte(payload))
+		assert.NoError(t, err)
+	}))
+
+	client := New(srv.URL)
+
+	res, err := client.APICall()
+
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPStatusCode)
+	assert.True(t, res.Success)
+	assert.Equal(t, time.Date(2011, time.February, 27, 12, 15, 50, 0, time.UTC), res.QueryTime.Time())
+
+	expected := DataObject{}
+
+	assert.Equal(t, expected, res.Data)
+}
