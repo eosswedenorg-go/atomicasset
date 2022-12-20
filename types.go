@@ -50,7 +50,7 @@ type ListingOffer struct {
 	UpdatedAtTime  UnixTime `json:"updated_at_time"`
 
 	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `Json:"created_at_time"`
+	CreatedAtTime  UnixTime `json:"created_at_time"`
 }
 
 // Transfer types
@@ -64,7 +64,7 @@ type ListingTransfer struct {
 	Assets    []ListingAsset `json:"assets"`
 
 	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `Json:"created_at_time"`
+	CreatedAtTime  UnixTime `json:"created_at_time"`
 }
 
 // Price types
@@ -102,5 +102,5 @@ type Link struct {
 	Assets         []Asset `json:"assets"`
 
 	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `Json:"created_at_time"`
+	CreatedAtTime  UnixTime `json:"created_at_time"`
 }
