@@ -1,0 +1,31 @@
+package atomicasset
+
+import (
+	"net/url"
+	"testing"
+
+	"github.com/sonh/qs"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestRequest_ResourceRequestParams(t *testing.T) {
+	tests := []struct {
+		name     string
+		input    ResourceRequestParams
+		expected url.Values
+	}{
+		{"Empty", ResourceRequestParams{}, url.Values{}},
+
+		{"Field", ResourceRequestParams{Field: "value"}, url.Values{"field": []string{"value"}}},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			v, err := qs.NewEncoder().Values(tt.input)
+
+			assert.NoError(t, err)
+			assert.EqualValues(t, tt.expected, v)
+		})
+	}
+}
