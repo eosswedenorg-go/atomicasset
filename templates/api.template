@@ -1,0 +1,51 @@
+package atomicasset
+
+// Types
+
+type Resource struct {
+	// Fields
+}
+
+// Request Parameters
+
+type ResourceRequestParams struct {
+	// Fields
+}
+
+// Responses
+
+type ResourceResponse struct {
+	APIResponse
+	Data Resource
+}
+
+type ResourcesResponse struct {
+	APIResponse
+	Data []Resource
+}
+
+// API Client functions
+
+// GetResource fetches "/atomicassets/v1/resources/{id}" from API
+func (c *Client) GetResource(id string) (ResourceResponse, error) {
+	var resp ResourceResponse
+
+	r, err := c.fetch("GET", "/atomicassets/v1/resources/"+id, nil, &resp.APIResponse)
+	if err == nil {
+		// Parse json
+		err = r.Unmarshal(&resp)
+	}
+	return resp, err
+}
+
+// GetResources fetches "/atomicassets/v1/resources" from API
+func (c *Client) GetResources(params ResourceRequestParams) (ResourcesResponse, error) {
+	var resp ResourcesResponse
+
+	r, err := c.fetch("GET", "/atomicassets/v1/resources", params, &resp.APIResponse)
+	if err == nil {
+		// Parse json
+		err = r.Unmarshal(&resp)
+	}
+	return resp, err
+}
