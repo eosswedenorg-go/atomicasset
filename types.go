@@ -53,28 +53,6 @@ type ListingOffer struct {
 	CreatedAtTime  UnixTime `Json:"created_at_time"`
 }
 
-type BuyOffer struct {
-	ID               string     `json:"buyoffer_id"`
-	MarketContract   string     `json:"market_contract"`
-	AssetsContract   string     `json:"assets_contract"`
-	Seller           string     `json:"seller"`
-	Buyer            string     `json:"buyer"`
-	Price            Token      `json:"price"`
-	Assets           []Asset    `json:"assets"`
-	MakerMarketplace string     `json:"maker_marketplace,omitempty"`
-	TakerMarketplace string     `json:"taker_marketplace,omitempty"`
-	Collection       Collection `json:"collection"`
-	State            int64      `json:"state"`
-	Memo             string     `json:"memo"`
-	DeclineMemo      string     `json:"decline_memo"`
-
-	UpdatedAtBlock string   `json:"updated_at_block"`
-	UpdatedAtTime  UnixTime `json:"updated_at_time"`
-
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `Json:"created_at_time"`
-}
-
 // Transfer types
 
 type ListingTransfer struct {
