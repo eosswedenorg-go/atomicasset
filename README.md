@@ -7,7 +7,7 @@ This package aims to implement a client for Pinknetwork's [atomicassets API](htt
 
 ### Install package
 
-``` bash
+```bash
 go get -u github.com/eosswedenorg-go/atomicasset@latest
 ```
 
@@ -35,6 +35,10 @@ func main() {
 }
 
 ```
+
+### TODO
+
+* implement `stats` resource
 
 ### Author
 
