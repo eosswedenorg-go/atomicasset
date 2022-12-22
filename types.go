@@ -86,21 +86,3 @@ type PriceToken struct {
 	Symbol    string `json:"token_symbol"`
 	Precision int    `json:"token_precision"`
 }
-
-// Link types
-
-type Link struct {
-	ID             string  `json:"link_id"`
-	ToolsContract  string  `json:"tools_contract"`
-	AssetsContract string  `json:"assets_contract"`
-	Creator        string  `json:"creator"`
-	Claimer        string  `json:"claimer,omitempty"`
-	State          int64   `json:"state"`
-	PublicKey      string  `json:"public_key"`
-	Memo           string  `json:"memo"`
-	TxID           string  `json:"txid"`
-	Assets         []Asset `json:"assets"`
-
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `json:"created_at_time"`
-}
