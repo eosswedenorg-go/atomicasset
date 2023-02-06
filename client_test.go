@@ -1,9 +1,12 @@
 package atomicasset
 
 import (
+	"context"
 	"net/http"
 	"net/http/httptest"
+	"strings"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -22,6 +25,43 @@ func TestClient_SendEncodeParametersFail(t *testing.T) {
 	_, err := client.send("GET", "/", "a string")
 
 	assert.EqualError(t, err, "expects struct input, got string")
+}
+
+func TestClient_SendContextTimeout(t *testing.T) {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+
+	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+		time.Sleep(time.Second * 10)
+	}))
+
+	client := NewWithContext(srv.URL, ctx)
+
+	_, err := client.send("GET", "/", nil)
+	assert.Error(t, err)
+	assert.True(t, strings.HasSuffix(err.Error(), "deadline exceeded"), "Error was not deadline exceeded")
+}
+
+func TestClient_SendContextCancel(t *testing.T) {
+	done := make(chan interface{})
+	srv := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+		time.Sleep(time.Second * 10)
+	}))
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
+	client := NewWithContext(srv.URL, ctx)
+
+	go func() {
+		defer close(done)
+		_, err := client.send("GET", "/", nil)
+		assert.Error(t, err)
+		assert.True(t, strings.HasSuffix(err.Error(), "context canceled"), "Error was not context canceled")
+	}()
+
+	time.Sleep(time.Second)
+	cancel()
+
+	<-done
 }
 
 func TestClient_APIError(t *testing.T) {
