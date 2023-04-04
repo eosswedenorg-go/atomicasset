@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/imroc/req/v3 v3.26.5
 	github.com/sonh/qs v0.6.2
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.2
 	gopkg.in/guregu/null.v4 v4.0.0
 )
 
