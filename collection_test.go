@@ -83,7 +83,7 @@ func TestGetCollections(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, int(time.Millisecond)*400, time.UTC), res.QueryTime.Time())
 
 	expected := []Collection{
 		{
@@ -183,7 +183,7 @@ func TestGetCollection(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, int(time.Millisecond)*400, time.UTC), res.QueryTime.Time())
 
 	expected := Collection{
 		Name:           "OUT OF THE MATRIX ",
@@ -243,7 +243,7 @@ func TestGetCollectionStats(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, int(time.Millisecond)*400, time.UTC), res.QueryTime.Time())
 
 	expected := CollectionStats{
 		Assets:           "27",
@@ -340,7 +340,7 @@ func TestGetCollectionLogs(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2022, time.November, 23, 14, 3, 54, 204, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.November, 23, 14, 3, 54, int(time.Millisecond)*204, time.UTC), res.QueryTime.Time())
 
 	expected := []Log{
 		{

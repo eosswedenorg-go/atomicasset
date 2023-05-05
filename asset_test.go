@@ -233,7 +233,7 @@ func TestClient_GetAsset(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Date(2022, time.March, 11, 16, 36, 54, 598, time.UTC), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.March, 11, 16, 36, 54, int(time.Millisecond)*598, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, asset1, a.Data)
 }
 
@@ -360,7 +360,7 @@ func TestClient_GetAssets(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Date(2022, time.March, 11, 11, 7, 50, 918, time.UTC), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.March, 11, 11, 7, 50, int(time.Millisecond)*918, time.UTC), a.QueryTime.Time())
 
 	expected := []Asset{asset1}
 
@@ -401,7 +401,7 @@ func TestGetAssetLog(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2022, time.November, 21, 15, 11, 19, 123, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.November, 21, 15, 11, 19, int(time.Millisecond)*123, time.UTC), res.QueryTime.Time())
 
 	expected := []Log{
 		{
@@ -469,7 +469,7 @@ func TestGetAssetSale(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2022, time.November, 22, 12, 57, 28, 963, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.November, 22, 12, 57, 28, int(time.Millisecond)*963, time.UTC), res.QueryTime.Time())
 
 	expected := []AssetSale{
 		{
@@ -535,7 +535,7 @@ func TestGetAssetSaleFilterSeller(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2022, time.November, 22, 12, 57, 28, 963, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.November, 22, 12, 57, 28, int(time.Millisecond)*963, time.UTC), res.QueryTime.Time())
 
 	expected := []AssetSale{
 		{
@@ -590,7 +590,7 @@ func TestGetAssetSaleFilterBuyer(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2022, time.November, 22, 12, 57, 28, 963, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.November, 22, 12, 57, 28, int(time.Millisecond)*963, time.UTC), res.QueryTime.Time())
 
 	expected := []AssetSale{
 		{

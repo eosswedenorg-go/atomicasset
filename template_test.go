@@ -162,7 +162,7 @@ func TestClient_GetTemplates(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Date(2008, time.May, 29, 2, 4, 12, 500, time.UTC), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2008, time.May, 29, 2, 4, 12, int(time.Millisecond)*500, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, []Template{expected}, a.Data)
 }
 
@@ -314,7 +314,7 @@ func TestClient_GetTemplate(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Date(2003, time.May, 19, 11, 13, 7, 500, time.UTC), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2003, time.May, 19, 11, 13, 7, int(time.Millisecond)*500, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, expected, a.Data)
 }
 
