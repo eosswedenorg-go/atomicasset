@@ -65,7 +65,7 @@ func (c *Client) send(method string, path string, params interface{}) (*req.Resp
 		return nil, fmt.Errorf("invalid content-type '%s', expected 'application/json'", t)
 	}
 
-	if resp.IsError() {
+	if resp.IsErrorState() {
 		apiErr := APIError{}
 		if resp.Unmarshal(&apiErr) == nil && apiErr.Success.Valid && !apiErr.Success.Bool {
 			return nil, fmt.Errorf("API Error: %s", apiErr.Message.String)
