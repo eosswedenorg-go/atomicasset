@@ -233,7 +233,7 @@ func TestClient_GetAsset(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Time(time.Date(2022, time.March, 11, 16, 36, 54, 598, time.UTC)), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.March, 11, 16, 36, 54, 598, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, asset1, a.Data)
 }
 
@@ -360,7 +360,7 @@ func TestClient_GetAssets(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Time(time.Date(2022, time.March, 11, 11, 7, 50, 918, time.UTC)), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.March, 11, 11, 7, 50, 918, time.UTC), a.QueryTime.Time())
 
 	expected := []Asset{asset1}
 

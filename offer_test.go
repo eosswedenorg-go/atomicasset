@@ -320,7 +320,7 @@ func TestClient_GetOffers(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Time(time.Date(2020, time.August, 20, 18, 38, 48, 0, time.UTC)), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2020, time.August, 20, 18, 38, 48, 0, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, []Offer{expected}, a.Data)
 }
 
@@ -570,7 +570,7 @@ func TestClient_GetOffer(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Time(time.Date(2015, time.March, 27, 13, 0, 38, 500, time.UTC)), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2015, time.March, 27, 13, 0, 38, 500, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, expected, a.Data)
 }
 
@@ -614,6 +614,6 @@ func TestClient_GetOfferLog(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Time(time.Date(2023, time.October, 13, 22, 16, 31, 0, time.UTC)), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2023, time.October, 13, 22, 16, 31, 0, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, []Log{expected}, a.Data)
 }

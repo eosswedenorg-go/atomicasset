@@ -266,6 +266,6 @@ func TestClient_GetTransfers(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Time(time.Date(2020, time.May, 25, 19, 15, 3, 0, time.UTC)), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2020, time.May, 25, 19, 15, 3, 0, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, []Transfer{expected}, a.Data)
 }
