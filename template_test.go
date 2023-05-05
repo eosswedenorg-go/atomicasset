@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -121,7 +123,7 @@ func TestClient_GetTemplates(t *testing.T) {
 				},
 			},
 			CreatedAtBlock: "197880498",
-			CreatedAtTime:  UnixTime(1660399568000),
+			CreatedAtTime:  unixtime.Time(1660399568000),
 		},
 		Collection: Collection{
 			Name:           "MindMaster Art",
@@ -141,7 +143,7 @@ func TestClient_GetTemplates(t *testing.T) {
 			NotifyAccounts: []string{},
 			MarketFee:      0.09,
 			CreatedAtBlock: "176839276",
-			CreatedAtTime:  UnixTime(1649876948500),
+			CreatedAtTime:  unixtime.Time(1649876948500),
 		},
 		ImmutableData: map[string]interface{}{
 			"img":         "QmSDfu2HFrfeBgPR74a76GKuFLThtRV5AJwmb8WDnSCmHe",
@@ -150,7 +152,7 @@ func TestClient_GetTemplates(t *testing.T) {
 			"description": "The Geeked for Christmas PFP was brought to you through 25 Days of NFTs, a mega collab featuring art from 40 Artists, organized by Crackers (Meet The Artist) @Crackers832 on Twitter! Blends available here https://neftyblocks.com/c/mindmastrart/blends",
 		},
 		CreatedAtBlock: "217039631",
-		CreatedAtTime:  UnixTime(1669984452500),
+		CreatedAtTime:  unixtime.Time(1669984452500),
 	}
 
 	client := New(srv.URL)
@@ -273,7 +275,7 @@ func TestClient_GetTemplate(t *testing.T) {
 				},
 			},
 			CreatedAtBlock: "197880498",
-			CreatedAtTime:  UnixTime(1660399568000),
+			CreatedAtTime:  unixtime.Time(1660399568000),
 		},
 		Collection: Collection{
 			Name:           "MindMaster Art",
@@ -293,7 +295,7 @@ func TestClient_GetTemplate(t *testing.T) {
 			NotifyAccounts: []string{},
 			MarketFee:      0.09,
 			CreatedAtBlock: "176839276",
-			CreatedAtTime:  UnixTime(1649876948500),
+			CreatedAtTime:  unixtime.Time(1649876948500),
 		},
 		ImmutableData: map[string]interface{}{
 			"img":         "QmSDfu2HFrfeBgPR74a76GKuFLThtRV5AJwmb8WDnSCmHe",
@@ -302,7 +304,7 @@ func TestClient_GetTemplate(t *testing.T) {
 			"description": "The Geeked for Christmas PFP was brought to you through 25 Days of NFTs, a mega collab featuring art from 40 Artists, organized by Crackers (Meet The Artist) @Crackers832 on Twitter! Blends available here https://neftyblocks.com/c/mindmastrart/blends",
 		},
 		CreatedAtBlock: "217039631",
-		CreatedAtTime:  UnixTime(1669984452500),
+		CreatedAtTime:  unixtime.Time(1669984452500),
 	}
 
 	client := New(srv.URL)

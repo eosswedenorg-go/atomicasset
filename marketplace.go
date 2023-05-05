@@ -1,12 +1,16 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Types
 
 type Marketplace struct {
-	Name           string   `json:"marketplace_name"`
-	Creator        string   `json:"creator"`
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `json:"created_at_time"`
+	Name           string        `json:"marketplace_name"`
+	Creator        string        `json:"creator"`
+	CreatedAtBlock string        `json:"created_at_block"`
+	CreatedAtTime  unixtime.Time `json:"created_at_time"`
 }
 
 // Request Parameters

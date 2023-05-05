@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -20,9 +22,9 @@ var link1 = Link{
 	Memo:           "advent of code day 17 winner 1 (msc7#2934) WARNING: Tip bot claimlinks may be cancelled 10 days after issuance.",
 	PublicKey:      "PUB_K1_61Sh5Roq63vxrWL7Xn1G5ntFmAUqJJa3Uaj4NhuLvVtjApLxdq",
 	CreatedAtBlock: "220155650",
-	CreatedAtTime:  UnixTime(1671543988000),
+	CreatedAtTime:  unixtime.Time(1671543988000),
 	UpdatedAtBlock: "220155650",
-	UpdatedAtTime:  UnixTime(1671543988000),
+	UpdatedAtTime:  unixtime.Time(1671543988000),
 	Assets:         []Asset{link_asset1},
 }
 
@@ -48,7 +50,7 @@ var link_asset1 Asset = Asset{
 		NotifyAccounts: []string{},
 		MarketFee:      0.07,
 		CreatedAtBlock: "66677714",
-		CreatedAtTime:  UnixTime(1594768100000),
+		CreatedAtTime:  unixtime.Time(1594768100000),
 	},
 	Schema: InlineSchema{
 		Name: "monkeystacks",
@@ -127,7 +129,7 @@ var link_asset1 Asset = Asset{
 			},
 		},
 		CreatedAtBlock: "148096441",
-		CreatedAtTime:  UnixTime(1635501352500),
+		CreatedAtTime:  unixtime.Time(1635501352500),
 	},
 	Template: Template{
 		ID:             "637934",
@@ -155,7 +157,7 @@ var link_asset1 Asset = Asset{
 			"pumpamentality": "9",
 		},
 		CreatedAtBlock: "217567668",
-		CreatedAtTime:  UnixTime(1670248713000),
+		CreatedAtTime:  unixtime.Time(1670248713000),
 	},
 	MutableData:       map[string]interface{}{},
 	ImmutableData:     map[string]interface{}{},
@@ -163,13 +165,13 @@ var link_asset1 Asset = Asset{
 	BackedTokens:      []Token{},
 	BurnedByAccount:   "",
 	BurnedAtBlock:     "",
-	BurnedAtTime:      UnixTime(0),
+	BurnedAtTime:      unixtime.Time(0),
 	UpdatedAtBlock:    "220155650",
-	UpdatedAtTime:     UnixTime(1671543988000),
+	UpdatedAtTime:     unixtime.Time(1671543988000),
 	TransferedAtBlock: "220155650",
-	TransferedAtTime:  UnixTime(1671543988000),
+	TransferedAtTime:  unixtime.Time(1671543988000),
 	MintedAtBlock:     "217574806",
-	MintedAtTime:      UnixTime(1670252287500),
+	MintedAtTime:      unixtime.Time(1670252287500),
 	Data: map[string]interface{}{
 		"img":            "QmZBunzJYQvLCE7nQo28JGVhjtMZyKrYkG1GoiLLpEgHiw",
 		"name":           "x-mas 2022",
@@ -449,7 +451,7 @@ func TestGetLinkLogs(t *testing.T) {
 			},
 			TxID:           "8c9ef0b05888d93376b7414ace818178d0d988a1486307a4d13ac8a442996a3e",
 			CreatedAtBlock: "220187047",
-			CreatedAtTime:  UnixTime(1671559689500),
+			CreatedAtTime:  unixtime.Time(1671559689500),
 		},
 		{
 			ID:             "71758057739",
@@ -457,7 +459,7 @@ func TestGetLinkLogs(t *testing.T) {
 			Data:           map[string]interface{}{},
 			TxID:           "98edbca5689aef78a1ff31dd6768c0cb8b6cb8db8b0696582b3667f5427d8537",
 			CreatedAtBlock: "220155650",
-			CreatedAtTime:  UnixTime(1671543988000),
+			CreatedAtTime:  unixtime.Time(1671543988000),
 		},
 	}
 

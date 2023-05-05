@@ -1,27 +1,31 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Types
 
 type PriceSale struct {
-	SaleID         string   `json:"sale_id"`
-	AuctionID      string   `json:"auction_id"`
-	BuyofferID     string   `json:"buyoffer_id"`
-	TemplateMint   int64    `json:"template_mint"`
-	Price          string   `json:"price"`
-	TokenSymbol    string   `json:"token_symbol"`
-	TokenPrecision int64    `json:"token_precision"`
-	TokenContract  string   `json:"token_contract"`
-	BlockTime      UnixTime `json:"block_time"`
+	SaleID         string        `json:"sale_id"`
+	AuctionID      string        `json:"auction_id"`
+	BuyofferID     string        `json:"buyoffer_id"`
+	TemplateMint   int64         `json:"template_mint"`
+	Price          string        `json:"price"`
+	TokenSymbol    string        `json:"token_symbol"`
+	TokenPrecision int64         `json:"token_precision"`
+	TokenContract  string        `json:"token_contract"`
+	BlockTime      unixtime.Time `json:"block_time"`
 }
 
 type PriceSaleDay struct {
-	Median         string   `json:"median"`
-	Average        string   `json:"average"`
-	Sales          string   `json:"sales"`
-	TokenSymbol    string   `json:"token_symbol"`
-	TokenPrecision int64    `json:"token_precision"`
-	TokenContract  string   `json:"token_contract"`
-	Time           UnixTime `json:"time"`
+	Median         string        `json:"median"`
+	Average        string        `json:"average"`
+	Sales          string        `json:"sales"`
+	TokenSymbol    string        `json:"token_symbol"`
+	TokenPrecision int64         `json:"token_precision"`
+	TokenContract  string        `json:"token_contract"`
+	Time           unixtime.Time `json:"time"`
 }
 
 type PriceTemplate struct {

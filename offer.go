@@ -1,5 +1,9 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Types
 
 type Offer struct {
@@ -14,11 +18,11 @@ type Offer struct {
 	SenderAssets        []Asset `json:"sender_assets"`
 	RecipientAssets     []Asset `json:"recipient_assets"`
 
-	UpdatedAtBlock string   `json:"updated_at_block"`
-	UpdatedAtTime  UnixTime `json:"updated_at_time"`
+	UpdatedAtBlock string        `json:"updated_at_block"`
+	UpdatedAtTime  unixtime.Time `json:"updated_at_time"`
 
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `json:"created_at_time"`
+	CreatedAtBlock string        `json:"created_at_block"`
+	CreatedAtTime  unixtime.Time `json:"created_at_time"`
 }
 
 // Request Parameters

@@ -1,5 +1,9 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Basic types
 
 type Token struct {
@@ -43,7 +47,7 @@ type Log struct {
 	Name           string                 `json:"name"`
 	Data           map[string]interface{} `json:"data"`
 	CreatedAtBlock string                 `json:"created_at_block"`
-	CreatedAtTime  UnixTime               `json:"created_at_time"`
+	CreatedAtTime  unixtime.Time          `json:"created_at_time"`
 }
 
 type LogsResponse struct {

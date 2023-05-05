@@ -1,5 +1,9 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Types
 
 type Asset struct {
@@ -19,18 +23,18 @@ type Asset struct {
 	ImmutableData map[string]interface{} `json:"immutable_data"`
 	MutableData   map[string]interface{} `json:"mutable_data"`
 
-	BurnedByAccount string   `json:"burned_by_account"`
-	BurnedAtBlock   string   `json:"burned_at_block"`
-	BurnedAtTime    UnixTime `json:"burned_at_time"`
+	BurnedByAccount string        `json:"burned_by_account"`
+	BurnedAtBlock   string        `json:"burned_at_block"`
+	BurnedAtTime    unixtime.Time `json:"burned_at_time"`
 
-	UpdatedAtBlock string   `json:"updated_at_block"`
-	UpdatedAtTime  UnixTime `json:"updated_at_time"`
+	UpdatedAtBlock string        `json:"updated_at_block"`
+	UpdatedAtTime  unixtime.Time `json:"updated_at_time"`
 
-	TransferedAtBlock string   `json:"transferred_at_block"`
-	TransferedAtTime  UnixTime `json:"transferred_at_time"`
+	TransferedAtBlock string        `json:"transferred_at_block"`
+	TransferedAtTime  unixtime.Time `json:"transferred_at_time"`
 
-	MintedAtBlock string   `json:"minted_at_block"`
-	MintedAtTime  UnixTime `json:"minted_at_time"`
+	MintedAtBlock string        `json:"minted_at_block"`
+	MintedAtTime  unixtime.Time `json:"minted_at_time"`
 }
 
 type ListingAsset struct {
@@ -50,18 +54,18 @@ type ListingAsset struct {
 	MutableData   map[string]interface{} `json:"mutable_data"`
 	Data          map[string]interface{} `json:"data"`
 
-	BurnedByAccount string   `json:"burned_by_account"`
-	BurnedAtBlock   string   `json:"burned_at_block"`
-	BurnedAtTime    UnixTime `json:"burned_at_time"`
+	BurnedByAccount string        `json:"burned_by_account"`
+	BurnedAtBlock   string        `json:"burned_at_block"`
+	BurnedAtTime    unixtime.Time `json:"burned_at_time"`
 
-	UpdatedAtBlock string   `json:"updated_at_block"`
-	UpdatedAtTime  UnixTime `json:"updated_at_time"`
+	UpdatedAtBlock string        `json:"updated_at_block"`
+	UpdatedAtTime  unixtime.Time `json:"updated_at_time"`
 
-	TransferedAtBlock string   `json:"transferred_at_block"`
-	TransferedAtTime  UnixTime `json:"transferred_at_time"`
+	TransferedAtBlock string        `json:"transferred_at_block"`
+	TransferedAtTime  unixtime.Time `json:"transferred_at_time"`
 
-	MintedAtBlock string   `json:"minted_at_block"`
-	MintedAtTime  UnixTime `json:"minted_at_time"`
+	MintedAtBlock string        `json:"minted_at_block"`
+	MintedAtTime  unixtime.Time `json:"minted_at_time"`
 
 	Sales    []Sale    `json:"sales"`
 	Auctions []Auction `json:"actions"`
@@ -69,17 +73,17 @@ type ListingAsset struct {
 }
 
 type AssetSale struct {
-	ID             string   `json:"sale_id"`
-	MarketContract string   `json:"market_contract"`
-	AuctionID      string   `json:"auction_id"`
-	BuyOfferID     string   `json:"buyoffer_id"`
-	Price          string   `json:"price"`
-	TokenSymbol    string   `json:"token_symbol"`
-	TokenPrecision int64    `json:"token_precision"`
-	TokenContract  string   `json:"token_contract"`
-	Seller         string   `json:"seller"`
-	Buyer          string   `json:"buyer"`
-	BlockTime      UnixTime `json:"block_time"`
+	ID             string        `json:"sale_id"`
+	MarketContract string        `json:"market_contract"`
+	AuctionID      string        `json:"auction_id"`
+	BuyOfferID     string        `json:"buyoffer_id"`
+	Price          string        `json:"price"`
+	TokenSymbol    string        `json:"token_symbol"`
+	TokenPrecision int64         `json:"token_precision"`
+	TokenContract  string        `json:"token_contract"`
+	Seller         string        `json:"seller"`
+	Buyer          string        `json:"buyer"`
+	BlockTime      unixtime.Time `json:"block_time"`
 }
 
 // Request Parameters

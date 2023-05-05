@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -106,7 +108,7 @@ func TestGetCollections(t *testing.T) {
 				"creator_info": "{\"country\":\"IT\",\"address\":\"\",\"city\":\"Limite Sull'Arno (FI)\",\"zip\":\"50050\",\"company\":\"Elisabetta Rosa\",\"name\":\"Elisabetta Rosa\",\"registration_number\":\"\"}",
 			},
 			CreatedAtBlock: "215481247",
-			CreatedAtTime:  UnixTime(1669204520000),
+			CreatedAtTime:  unixtime.Time(1669204520000),
 		},
 		{
 			Name:           "Filipino Digital Arts",
@@ -130,7 +132,7 @@ func TestGetCollections(t *testing.T) {
 				"creator_info": "{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}",
 			},
 			CreatedAtBlock: "215453568",
-			CreatedAtTime:  UnixTime(1669190667500),
+			CreatedAtTime:  unixtime.Time(1669190667500),
 		},
 	}
 
@@ -204,7 +206,7 @@ func TestGetCollection(t *testing.T) {
 			"creator_info": "{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}",
 		},
 		CreatedAtBlock: "215442702",
-		CreatedAtTime:  UnixTime(1669185229500),
+		CreatedAtTime:  unixtime.Time(1669185229500),
 	}
 
 	assert.Equal(t, expected, res.Data)
@@ -400,7 +402,7 @@ func TestGetCollectionLogs(t *testing.T) {
 			},
 
 			CreatedAtBlock: "215442702",
-			CreatedAtTime:  UnixTime(1669185229500),
+			CreatedAtTime:  unixtime.Time(1669185229500),
 		},
 	}
 

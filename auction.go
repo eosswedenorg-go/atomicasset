@@ -2,40 +2,42 @@ package atomicasset
 
 import (
 	"fmt"
+
+	"github.com/eosswedenorg-go/unixtime"
 )
 
 // Types
 
 type Bid struct {
-	Number         int      `json:"number"`
-	Account        string   `json:"account"`
-	Amount         string   `json:"amount"`
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `json:"created_at_time"`
-	TxID           string   `json:"txid"`
+	Number         int           `json:"number"`
+	Account        string        `json:"account"`
+	Amount         string        `json:"amount"`
+	CreatedAtBlock string        `json:"created_at_block"`
+	CreatedAtTime  unixtime.Time `json:"created_at_time"`
+	TxID           string        `json:"txid"`
 }
 
 type Auction struct {
-	ID               string     `json:"auction_id"`
-	MarketContract   string     `json:"market_contract"`
-	AssetsContract   string     `json:"assets_contract"`
-	Seller           string     `json:"seller"`
-	Buyer            string     `json:"buyer"`
-	Price            Token      `json:"price"`
-	Assets           []Asset    `json:"assets"`
-	Bids             []Bid      `json:"bids"`
-	MakerMarketplace string     `json:"maker_marketplace"`
-	TakerMarketplace string     `json:"taker_marketplace"`
-	ClaimedByBuyer   bool       `json:"claimed_by_buyer"`
-	ClaimedBySeller  bool       `json:"claimed_by_seller"`
-	Collection       Collection `json:"collection"`
-	EndTime          UnixTime   `json:"end_time"`
-	IsSellerContract bool       `json:"is_seller_contract"`
-	UpdatedAtBlock   string     `json:"updated_at_block"`
-	UpdatedAtTime    UnixTime   `json:"updated_at_time"`
-	CreatedAtBlock   string     `json:"created_at_block"`
-	CreatedAtTime    UnixTime   `json:"created_at_time"`
-	State            SalesState `json:"state"`
+	ID               string        `json:"auction_id"`
+	MarketContract   string        `json:"market_contract"`
+	AssetsContract   string        `json:"assets_contract"`
+	Seller           string        `json:"seller"`
+	Buyer            string        `json:"buyer"`
+	Price            Token         `json:"price"`
+	Assets           []Asset       `json:"assets"`
+	Bids             []Bid         `json:"bids"`
+	MakerMarketplace string        `json:"maker_marketplace"`
+	TakerMarketplace string        `json:"taker_marketplace"`
+	ClaimedByBuyer   bool          `json:"claimed_by_buyer"`
+	ClaimedBySeller  bool          `json:"claimed_by_seller"`
+	Collection       Collection    `json:"collection"`
+	EndTime          unixtime.Time `json:"end_time"`
+	IsSellerContract bool          `json:"is_seller_contract"`
+	UpdatedAtBlock   string        `json:"updated_at_block"`
+	UpdatedAtTime    unixtime.Time `json:"updated_at_time"`
+	CreatedAtBlock   string        `json:"created_at_block"`
+	CreatedAtTime    unixtime.Time `json:"created_at_time"`
+	State            SalesState    `json:"state"`
 }
 
 type AuctionsRequestParams struct {

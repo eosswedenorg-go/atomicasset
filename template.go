@@ -1,6 +1,10 @@
 package atomicasset
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/eosswedenorg-go/unixtime"
+)
 
 // Types
 
@@ -15,10 +19,10 @@ type Template struct {
 
 	// Note: Collection.Contract is always non-existant in template responses.
 	// But cba to create a new struct just for one field.
-	Collection     Collection   `json:"collection"`
-	Schema         InlineSchema `json:"schema"`
-	CreatedAtBlock string       `json:"created_at_block"`
-	CreatedAtTime  UnixTime     `json:"created_at_time"`
+	Collection     Collection    `json:"collection"`
+	Schema         InlineSchema  `json:"schema"`
+	CreatedAtBlock string        `json:"created_at_block"`
+	CreatedAtTime  unixtime.Time `json:"created_at_time"`
 }
 
 type TemplateStats struct {

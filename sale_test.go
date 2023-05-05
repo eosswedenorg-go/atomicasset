@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -20,7 +22,7 @@ var matrix_funko_col = Collection{
 	NotifyAccounts:     []string{},
 	MarketFee:          0.06,
 	CreatedAtBlock:     "213350477",
-	CreatedAtTime:      UnixTime(1668138328000),
+	CreatedAtTime:      unixtime.Time(1668138328000),
 }
 
 var morpheus_data = map[string]interface{}{
@@ -265,7 +267,7 @@ var sale_100420714 = Sale{
 					{Name: "img", Type: "image"},
 				},
 				CreatedAtBlock: "213351916",
-				CreatedAtTime:  UnixTime(1668139047500),
+				CreatedAtTime:  unixtime.Time(1668139047500),
 			},
 			Template: Template{
 				ID:             "620698",
@@ -275,7 +277,7 @@ var sale_100420714 = Sale{
 				IssuedSupply:   "4400",
 				ImmutableData:  morpheus_data,
 				CreatedAtBlock: "213352298",
-				CreatedAtTime:  UnixTime(1668139238500),
+				CreatedAtTime:  unixtime.Time(1668139238500),
 			},
 			MutableData:       map[string]interface{}{},
 			ImmutableData:     map[string]interface{}{},
@@ -283,13 +285,13 @@ var sale_100420714 = Sale{
 			BackedTokens:      []Token{},
 			BurnedByAccount:   "",
 			BurnedAtBlock:     "",
-			BurnedAtTime:      UnixTime(0),
+			BurnedAtTime:      unixtime.Time(0),
 			UpdatedAtBlock:    "217566006",
-			UpdatedAtTime:     UnixTime(1670247881000),
+			UpdatedAtTime:     unixtime.Time(1670247881000),
 			TransferedAtBlock: "217566006",
-			TransferedAtTime:  UnixTime(1670247881000),
+			TransferedAtTime:  unixtime.Time(1670247881000),
 			MintedAtBlock:     "213359433",
-			MintedAtTime:      UnixTime(1668142807000),
+			MintedAtTime:      unixtime.Time(1668142807000),
 			Data:              morpheus_data,
 		},
 	},
@@ -299,9 +301,9 @@ var sale_100420714 = Sale{
 	IsSellerContract: false,
 	State:            SalesStateListed,
 	UpdatedAtBlock:   "217566088",
-	UpdatedAtTime:    UnixTime(1670247922000),
+	UpdatedAtTime:    unixtime.Time(1670247922000),
 	CreatedAtBlock:   "217566088",
-	CreatedAtTime:    UnixTime(1670247922000),
+	CreatedAtTime:    unixtime.Time(1670247922000),
 }
 
 func TestGetSales(t *testing.T) {
@@ -445,7 +447,7 @@ func TestGetSaleLogs(t *testing.T) {
 			},
 			TxID:           "3650f8425f0dd7a880a244c77b2c2ad201760648ba77859e26f8bc7bf7d59efc",
 			CreatedAtBlock: "217573294",
-			CreatedAtTime:  UnixTime(1670251531000),
+			CreatedAtTime:  unixtime.Time(1670251531000),
 		},
 		{
 			ID:   "70813258501",
@@ -455,7 +457,7 @@ func TestGetSaleLogs(t *testing.T) {
 			},
 			TxID:           "1ae2c6b0f1ad14c4bf0dcac2175ddded71e773bf5abc3342351034227cafd59c",
 			CreatedAtBlock: "217566088",
-			CreatedAtTime:  UnixTime(1670247922000),
+			CreatedAtTime:  unixtime.Time(1670247922000),
 		},
 	}
 

@@ -2,6 +2,8 @@ package atomicasset
 
 import (
 	"fmt"
+
+	"github.com/eosswedenorg-go/unixtime"
 )
 
 // Types
@@ -27,10 +29,10 @@ type Link struct {
 	TxID           string    `json:"txid"`
 	Assets         []Asset   `json:"assets"`
 
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `json:"created_at_time"`
-	UpdatedAtBlock string   `json:"updated_at_block"`
-	UpdatedAtTime  UnixTime `json:"updated_at_time"`
+	CreatedAtBlock string        `json:"created_at_block"`
+	CreatedAtTime  unixtime.Time `json:"created_at_time"`
+	UpdatedAtBlock string        `json:"updated_at_block"`
+	UpdatedAtTime  unixtime.Time `json:"updated_at_time"`
 }
 
 // Request Parameters

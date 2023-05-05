@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -226,7 +228,7 @@ func TestGetAuction(t *testing.T) {
 		NotifyAccounts: []string{},
 		MarketFee:      0.06,
 		CreatedAtBlock: "65772806",
-		CreatedAtTime:  UnixTime(1594315642000),
+		CreatedAtTime:  unixtime.Time(1594315642000),
 	}
 
 	expected := Auction{
@@ -287,7 +289,7 @@ func TestGetAuction(t *testing.T) {
 						},
 					},
 					CreatedAtBlock: "93213470",
-					CreatedAtTime:  UnixTime(1608040192000),
+					CreatedAtTime:  unixtime.Time(1608040192000),
 				},
 				Template: Template{
 					ID:             "42427",
@@ -303,7 +305,7 @@ func TestGetAuction(t *testing.T) {
 						"variation": "Reward",
 					},
 					CreatedAtBlock: "94604712",
-					CreatedAtTime:  UnixTime(1608735860500),
+					CreatedAtTime:  unixtime.Time(1608735860500),
 				},
 				MutableData:       map[string]interface{}{},
 				ImmutableData:     map[string]interface{}{},
@@ -311,13 +313,13 @@ func TestGetAuction(t *testing.T) {
 				BackedTokens:      []Token{},
 				BurnedByAccount:   "acc.wam",
 				BurnedAtBlock:     "112878022",
-				BurnedAtTime:      UnixTime(1617878250000),
+				BurnedAtTime:      unixtime.Time(1617878250000),
 				UpdatedAtBlock:    "112878020",
-				UpdatedAtTime:     UnixTime(1617878249000),
+				UpdatedAtTime:     unixtime.Time(1617878249000),
 				TransferedAtBlock: "112878020",
-				TransferedAtTime:  UnixTime(1617878249000),
+				TransferedAtTime:  unixtime.Time(1617878249000),
 				MintedAtBlock:     "94619162",
-				MintedAtTime:      UnixTime(1608743086000),
+				MintedAtTime:      unixtime.Time(1608743086000),
 				Data: map[string]interface{}{
 					"img":       "QmdM2Q1QXXAPtWMUifLVN4ySbqaZL6pE2f82HRrnAwioLq/img/01.gif",
 					"name":      "Sentinel-256",
@@ -333,12 +335,12 @@ func TestGetAuction(t *testing.T) {
 		ClaimedByBuyer:   false,
 		ClaimedBySeller:  false,
 		Collection:       collection,
-		EndTime:          UnixTime(1611186498000),
+		EndTime:          unixtime.Time(1611186498000),
 		IsSellerContract: false,
 		UpdatedAtBlock:   "99508886",
-		UpdatedAtTime:    UnixTime(1611188638000),
+		UpdatedAtTime:    unixtime.Time(1611188638000),
 		CreatedAtBlock:   "99331913",
-		CreatedAtTime:    UnixTime(1611100098000),
+		CreatedAtTime:    unixtime.Time(1611100098000),
 		State:            SalesStateCanceled,
 	}
 
@@ -396,7 +398,7 @@ func TestGetAuctionLogs(t *testing.T) {
 			TxID:           "d73c7955472224a5a077075956d5a0b7e4981658efcf0f120bbc187d4973f471",
 			Data:           map[string]interface{}{},
 			CreatedAtBlock: "99508886",
-			CreatedAtTime:  UnixTime(1611188638000),
+			CreatedAtTime:  unixtime.Time(1611188638000),
 		},
 		{
 			ID:             "883565679",
@@ -404,7 +406,7 @@ func TestGetAuctionLogs(t *testing.T) {
 			TxID:           "0ff331772b222abed459ca4536c3654f3eb3b636aa7f74963e5eca93a74b0c70",
 			Data:           map[string]interface{}{},
 			CreatedAtBlock: "99331913",
-			CreatedAtTime:  UnixTime(1611100098000),
+			CreatedAtTime:  unixtime.Time(1611100098000),
 		},
 		{
 			ID:   "883565673",
@@ -416,7 +418,7 @@ func TestGetAuctionLogs(t *testing.T) {
 				"maker_marketplace": "",
 			},
 			CreatedAtBlock: "99331913",
-			CreatedAtTime:  UnixTime(1611100098000),
+			CreatedAtTime:  unixtime.Time(1611100098000),
 		},
 	}
 
@@ -630,7 +632,7 @@ func TestGetAuctions(t *testing.T) {
 		NotifyAccounts: []string{},
 		MarketFee:      0.06,
 		CreatedAtBlock: "117574616",
-		CreatedAtTime:  UnixTime(1620228511000),
+		CreatedAtTime:  unixtime.Time(1620228511000),
 	}
 
 	expected := []Auction{
@@ -676,7 +678,7 @@ func TestGetAuctions(t *testing.T) {
 							},
 						},
 						CreatedAtBlock: "158859181",
-						CreatedAtTime:  UnixTime(1640884681000),
+						CreatedAtTime:  unixtime.Time(1640884681000),
 					},
 					Template: Template{
 						ID:             "642479",
@@ -690,7 +692,7 @@ func TestGetAuctions(t *testing.T) {
 							"description": "PFP - Neo The Cyber Witch - Shocked ver.",
 						},
 						CreatedAtBlock: "219482739",
-						CreatedAtTime:  UnixTime(1671207271500),
+						CreatedAtTime:  unixtime.Time(1671207271500),
 					},
 					MutableData:       map[string]interface{}{},
 					ImmutableData:     map[string]interface{}{},
@@ -698,13 +700,13 @@ func TestGetAuctions(t *testing.T) {
 					BackedTokens:      []Token{},
 					BurnedByAccount:   "",
 					BurnedAtBlock:     "",
-					BurnedAtTime:      UnixTime(0),
+					BurnedAtTime:      unixtime.Time(0),
 					UpdatedAtBlock:    "219483049",
-					UpdatedAtTime:     UnixTime(1671207427500),
+					UpdatedAtTime:     unixtime.Time(1671207427500),
 					TransferedAtBlock: "219483049",
-					TransferedAtTime:  UnixTime(1671207427500),
+					TransferedAtTime:  unixtime.Time(1671207427500),
 					MintedAtBlock:     "219483002",
-					MintedAtTime:      UnixTime(1671207403000),
+					MintedAtTime:      unixtime.Time(1671207403000),
 					Data: map[string]interface{}{
 						"img":         "Qme4VGrcbGqM5xZwCALaskcMuhRL4rQzeu9WDUHwScJiDX",
 						"name":        "Neo The Cyber Witch",
@@ -718,7 +720,7 @@ func TestGetAuctions(t *testing.T) {
 					Account:        "jollewaxacc1",
 					Amount:         "1100000000",
 					CreatedAtBlock: "219484412",
-					CreatedAtTime:  UnixTime(1671208109000),
+					CreatedAtTime:  unixtime.Time(1671208109000),
 					TxID:           "9311ca95a37510213c6d969586787904bea4197fab594d186704920d806b29eb",
 				},
 				{
@@ -726,7 +728,7 @@ func TestGetAuctions(t *testing.T) {
 					Account:        "3wkba.wam",
 					Amount:         "3000000000",
 					CreatedAtBlock: "219485027",
-					CreatedAtTime:  UnixTime(1671208416500),
+					CreatedAtTime:  unixtime.Time(1671208416500),
 					TxID:           "f416c24434dc1bc91850c6b95f21bdf3b4f4b29799b067714fcf1507167e41b8",
 				},
 			},
@@ -735,12 +737,12 @@ func TestGetAuctions(t *testing.T) {
 			ClaimedByBuyer:   false,
 			ClaimedBySeller:  false,
 			Collection:       collection,
-			EndTime:          UnixTime(1671294427000),
+			EndTime:          unixtime.Time(1671294427000),
 			IsSellerContract: false,
 			UpdatedAtBlock:   "219485027",
-			UpdatedAtTime:    UnixTime(1671208416500),
+			UpdatedAtTime:    unixtime.Time(1671208416500),
 			CreatedAtBlock:   "219483049",
-			CreatedAtTime:    UnixTime(1671207427500),
+			CreatedAtTime:    unixtime.Time(1671207427500),
 			State:            SalesStateListed,
 		},
 	}

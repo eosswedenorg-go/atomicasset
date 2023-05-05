@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -195,7 +197,7 @@ func TestClient_GetOffers(t *testing.T) {
 					NotifyAccounts: []string{},
 					MarketFee:      0.06,
 					CreatedAtBlock: "199268367",
-					CreatedAtTime:  UnixTime(1661093566500),
+					CreatedAtTime:  unixtime.Time(1661093566500),
 				},
 				Schema: InlineSchema{
 					Name: "series1.drop",
@@ -250,7 +252,7 @@ func TestClient_GetOffers(t *testing.T) {
 						},
 					},
 					CreatedAtBlock: "199271893",
-					CreatedAtTime:  UnixTime(1661095329500),
+					CreatedAtTime:  unixtime.Time(1661095329500),
 				},
 				Template: Template{
 					ID:             "583939",
@@ -272,19 +274,19 @@ func TestClient_GetOffers(t *testing.T) {
 						"end user license agreement": "https://digital.funko.com/eula/",
 					},
 					CreatedAtBlock: "199272794",
-					CreatedAtTime:  UnixTime(1661095780000),
+					CreatedAtTime:  unixtime.Time(1661095780000),
 				},
 				TemplateMint:      "1271",
 				BackedTokens:      []Token{},
 				BurnedByAccount:   "",
 				BurnedAtBlock:     "",
-				BurnedAtTime:      UnixTime(0),
+				BurnedAtTime:      unixtime.Time(0),
 				UpdatedAtBlock:    "217067471",
-				UpdatedAtTime:     UnixTime(1669998379500),
+				UpdatedAtTime:     unixtime.Time(1669998379500),
 				TransferedAtBlock: "217067471",
-				TransferedAtTime:  UnixTime(1669998379500),
+				TransferedAtTime:  unixtime.Time(1669998379500),
 				MintedAtBlock:     "199294390",
-				MintedAtTime:      UnixTime(1661106579000),
+				MintedAtTime:      unixtime.Time(1661106579000),
 				Data: map[string]interface{}{
 					"tid":                        float64(53),
 					"name":                       "White Ranger",
@@ -306,9 +308,9 @@ func TestClient_GetOffers(t *testing.T) {
 		IsSenderContract:    false,
 		IsRecipientContract: true,
 		UpdatedAtBlock:      "217068480",
-		UpdatedAtTime:       UnixTime(1669998884000),
+		UpdatedAtTime:       unixtime.Time(1669998884000),
 		CreatedAtBlock:      "217068480",
-		CreatedAtTime:       UnixTime(1669998884000),
+		CreatedAtTime:       unixtime.Time(1669998884000),
 	}
 
 	client := New(srv.URL)
@@ -497,7 +499,7 @@ func TestClient_GetOffer(t *testing.T) {
 					},
 					MarketFee:      0.08,
 					CreatedAtBlock: "119292230",
-					CreatedAtTime:  UnixTime(1621087532500),
+					CreatedAtTime:  unixtime.Time(1621087532500),
 				},
 				Schema: InlineSchema{
 					Name: "boost",
@@ -516,7 +518,7 @@ func TestClient_GetOffer(t *testing.T) {
 						},
 					},
 					CreatedAtBlock: "140846993",
-					CreatedAtTime:  UnixTime(1631874248500),
+					CreatedAtTime:  unixtime.Time(1631874248500),
 				},
 				Template: Template{
 					ID:             "289842",
@@ -530,19 +532,19 @@ func TestClient_GetOffer(t *testing.T) {
 						"Description": "1 x Boost NFT used to try and enhance your time in the Nova Rally! Beware though, it could backfire!",
 					},
 					CreatedAtBlock: "140847126",
-					CreatedAtTime:  UnixTime(1631874315000),
+					CreatedAtTime:  unixtime.Time(1631874315000),
 				},
 				TemplateMint:      "116296",
 				BackedTokens:      []Token{},
 				BurnedByAccount:   "",
 				BurnedAtBlock:     "",
-				BurnedAtTime:      UnixTime(0),
+				BurnedAtTime:      unixtime.Time(0),
 				UpdatedAtBlock:    "216271853",
-				UpdatedAtTime:     UnixTime(1669600180500),
+				UpdatedAtTime:     unixtime.Time(1669600180500),
 				TransferedAtBlock: "216271853",
-				TransferedAtTime:  UnixTime(1669600180500),
+				TransferedAtTime:  unixtime.Time(1669600180500),
 				MintedAtBlock:     "216271646",
-				MintedAtTime:      UnixTime(1669600077000),
+				MintedAtTime:      unixtime.Time(1669600077000),
 				Data: map[string]interface{}{
 					"img":         "Qme2DQmTCgE6z2e8QxwyBtgcyRoVSptGk68AGYknG8PbHR/boost.png",
 					"name":        "Boost",
@@ -556,9 +558,9 @@ func TestClient_GetOffer(t *testing.T) {
 		IsSenderContract:    true,
 		IsRecipientContract: true,
 		UpdatedAtBlock:      "217068401",
-		UpdatedAtTime:       UnixTime(1669998844500),
+		UpdatedAtTime:       unixtime.Time(1669998844500),
 		CreatedAtBlock:      "217068401",
-		CreatedAtTime:       UnixTime(1669998844500),
+		CreatedAtTime:       unixtime.Time(1669998844500),
 	}
 
 	client := New(srv.URL)
@@ -602,7 +604,7 @@ func TestClient_GetOfferLog(t *testing.T) {
 		TxID:           "ca3dd523426ca7d410e60bbb49eb76675374b107f9b25b908bf9fe70fa3fc640",
 		Data:           map[string]interface{}{},
 		CreatedAtBlock: "217068401",
-		CreatedAtTime:  UnixTime(1669998844500),
+		CreatedAtTime:  unixtime.Time(1669998844500),
 	}
 
 	client := New(srv.URL)

@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -36,7 +38,7 @@ var asset1 = Asset{
 		},
 		MarketFee:      0.05,
 		CreatedAtBlock: "123762633",
-		CreatedAtTime:  UnixTime(1623323058000),
+		CreatedAtTime:  unixtime.Time(1623323058000),
 	},
 	Schema: InlineSchema{
 		Name: "memberships",
@@ -67,7 +69,7 @@ var asset1 = Asset{
 			},
 		},
 		CreatedAtBlock: "136880914",
-		CreatedAtTime:  UnixTime(1629887699000),
+		CreatedAtTime:  unixtime.Time(1629887699000),
 	},
 	Template: Template{
 		ID:             "260629",
@@ -84,7 +86,7 @@ var asset1 = Asset{
 			"description": "This is a member card powered by Wood. When used by the farmer, it will increase the power and luck of the wood mining tools, and can mine the Farmer Coin that has been lost since ancient times.",
 		},
 		CreatedAtBlock: "136882467",
-		CreatedAtTime:  UnixTime(1629888476000),
+		CreatedAtTime:  unixtime.Time(1629888476000),
 	},
 	ImmutableData: map[string]interface{}{
 		"asdx": "4321",
@@ -101,11 +103,11 @@ var asset1 = Asset{
 		"description": "This is a member card powered by Wood. When used by the farmer, it will increase the power and luck of the wood mining tools, and can mine the Farmer Coin that has been lost since ancient times.",
 	},
 	UpdatedAtBlock:    "171080009",
-	UpdatedAtTime:     UnixTime(1646996870500),
+	UpdatedAtTime:     unixtime.Time(1646996870500),
 	TransferedAtBlock: "171080009",
-	TransferedAtTime:  UnixTime(1646996870500),
+	TransferedAtTime:  unixtime.Time(1646996870500),
 	MintedAtBlock:     "171080009",
-	MintedAtTime:      UnixTime(1646996870500),
+	MintedAtTime:      unixtime.Time(1646996870500),
 	BackedTokens:      []Token{},
 }
 
@@ -411,7 +413,7 @@ func TestGetAssetLog(t *testing.T) {
 				"authorized_minter": "farmersworld",
 			},
 			CreatedAtBlock: "171080009",
-			CreatedAtTime:  UnixTime(1646996870500),
+			CreatedAtTime:  unixtime.Time(1646996870500),
 		},
 	}
 

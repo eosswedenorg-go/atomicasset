@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -43,7 +45,7 @@ func TestGetMarketprice(t *testing.T) {
 		Name:           "dablabsstore",
 		Creator:        "dablabsdotio",
 		CreatedAtBlock: "183424843",
-		CreatedAtTime:  UnixTime(1653170778000),
+		CreatedAtTime:  unixtime.Time(1653170778000),
 	}
 
 	assert.Equal(t, expected, res.Data)
@@ -91,13 +93,13 @@ func TestGetMarketprices(t *testing.T) {
 			Name:           "beastsbazaar",
 			Creator:        "beastsbazaar",
 			CreatedAtBlock: "160233137",
-			CreatedAtTime:  UnixTime(1641571675500),
+			CreatedAtTime:  unixtime.Time(1641571675500),
 		},
 		{
 			Name:           "cheatcodemrk",
 			Creator:        "lamovichwaxp",
 			CreatedAtBlock: "191007878",
-			CreatedAtTime:  UnixTime(1656962990500),
+			CreatedAtTime:  unixtime.Time(1656962990500),
 		},
 	}
 
