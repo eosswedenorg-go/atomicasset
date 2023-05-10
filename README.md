@@ -2,6 +2,7 @@
 
 [![Test](https://github.com/eosswedenorg-go/atomicasset/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/eosswedenorg-go/atomicasset/actions/workflows/test.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/eosswedenorg-go/atomicasset.svg)](https://pkg.go.dev/github.com/eosswedenorg-go/atomicasset)
+[![Go Report Card](https://goreportcard.com/badge/github.com/eosswedenorg-go/atomicasset)](https://goreportcard.com/report/github.com/eosswedenorg-go/atomicasset)
 
 This package aims to implement a client for Pinknetwork's [atomicassets API](https://github.com/pinknetworkx/eosio-contract-api) in go.
 
