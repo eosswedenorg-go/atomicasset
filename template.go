@@ -17,7 +17,7 @@ type Template struct {
 	IsBurnable     bool                   `json:"is_burnable"`
 	ImmutableData  map[string]interface{} `json:"immutable_data"`
 
-	// Note: Collection.Contract is always non-existant in template responses.
+	// Note: Collection.Contract is always non-existent in template responses.
 	// But cba to create a new struct just for one field.
 	Collection     Collection    `json:"collection"`
 	Schema         InlineSchema  `json:"schema"`
