@@ -6,7 +6,7 @@ require (
 	github.com/eosswedenorg-go/unixtime v0.1.1
 	github.com/imroc/req/v3 v3.33.2
 	github.com/sonh/qs v0.6.2
-	github.com/stretchr/testify v1.8.2
+	github.com/stretchr/testify v1.8.3
 	gopkg.in/guregu/null.v4 v4.0.0
 )
 
