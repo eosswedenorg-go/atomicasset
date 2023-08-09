@@ -1,6 +1,7 @@
 package atomicasset
 
 import (
+	"context"
 	"fmt"
 	"strings"
 
@@ -12,12 +13,18 @@ import (
 type Client struct {
 	URL  string
 	Host string
+	ctx  context.Context
 }
 
 // New Creates a new client object
 func New(url string) *Client {
+	return NewWithContext(url, nil)
+}
+
+func NewWithContext(url string, ctx context.Context) *Client {
 	return &Client{
 		URL: url,
+		ctx: ctx,
 	}
 }
 
@@ -44,6 +51,10 @@ func (c *Client) send(method string, path string, params interface{}) (*req.Resp
 		r.SetHeader("Host", c.Host)
 	}
 
+	if c.ctx != nil {
+		r.SetContext(c.ctx)
+	}
+
 	resp, err := r.Send(method, c.URL+path)
 	if err != nil {
 		return nil, err
@@ -54,7 +65,7 @@ func (c *Client) send(method string, path string, params interface{}) (*req.Resp
 		return nil, fmt.Errorf("invalid content-type '%s', expected 'application/json'", t)
 	}
 
-	if resp.IsError() {
+	if resp.IsErrorState() {
 		apiErr := APIError{}
 		if resp.Unmarshal(&apiErr) == nil && apiErr.Success.Valid && !apiErr.Success.Bool {
 			return nil, fmt.Errorf("API Error: %s", apiErr.Message.String)

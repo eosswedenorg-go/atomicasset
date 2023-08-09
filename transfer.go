@@ -1,5 +1,9 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Types
 
 type Transfer struct {
@@ -10,8 +14,8 @@ type Transfer struct {
 	Memo      string  `json:"memo"`
 	Assets    []Asset `json:"assets"`
 
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `json:"created_at_time"`
+	CreatedAtBlock string        `json:"created_at_block"`
+	CreatedAtTime  unixtime.Time `json:"created_at_time"`
 }
 
 // Request Parameters

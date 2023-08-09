@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -81,7 +83,7 @@ func TestGetCollections(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, int(time.Millisecond)*400, time.UTC), res.QueryTime.Time())
 
 	expected := []Collection{
 		{
@@ -106,7 +108,7 @@ func TestGetCollections(t *testing.T) {
 				"creator_info": "{\"country\":\"IT\",\"address\":\"\",\"city\":\"Limite Sull'Arno (FI)\",\"zip\":\"50050\",\"company\":\"Elisabetta Rosa\",\"name\":\"Elisabetta Rosa\",\"registration_number\":\"\"}",
 			},
 			CreatedAtBlock: "215481247",
-			CreatedAtTime:  UnixTime(1669204520000),
+			CreatedAtTime:  unixtime.Time(1669204520000),
 		},
 		{
 			Name:           "Filipino Digital Arts",
@@ -130,7 +132,7 @@ func TestGetCollections(t *testing.T) {
 				"creator_info": "{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}",
 			},
 			CreatedAtBlock: "215453568",
-			CreatedAtTime:  UnixTime(1669190667500),
+			CreatedAtTime:  unixtime.Time(1669190667500),
 		},
 	}
 
@@ -181,7 +183,7 @@ func TestGetCollection(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, int(time.Millisecond)*400, time.UTC), res.QueryTime.Time())
 
 	expected := Collection{
 		Name:           "OUT OF THE MATRIX ",
@@ -204,7 +206,7 @@ func TestGetCollection(t *testing.T) {
 			"creator_info": "{\"country\":\"\",\"address\":\"\",\"city\":\"\",\"zip\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}",
 		},
 		CreatedAtBlock: "215442702",
-		CreatedAtTime:  UnixTime(1669185229500),
+		CreatedAtTime:  unixtime.Time(1669185229500),
 	}
 
 	assert.Equal(t, expected, res.Data)
@@ -241,7 +243,7 @@ func TestGetCollectionStats(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, 400, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2012, time.December, 13, 2, 54, 24, int(time.Millisecond)*400, time.UTC), res.QueryTime.Time())
 
 	expected := CollectionStats{
 		Assets:           "27",
@@ -338,7 +340,7 @@ func TestGetCollectionLogs(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPStatusCode)
 	assert.True(t, res.Success)
-	assert.Equal(t, time.Date(2022, time.November, 23, 14, 3, 54, 204, time.UTC), res.QueryTime.Time())
+	assert.Equal(t, time.Date(2022, time.November, 23, 14, 3, 54, int(time.Millisecond)*204, time.UTC), res.QueryTime.Time())
 
 	expected := []Log{
 		{
@@ -400,7 +402,7 @@ func TestGetCollectionLogs(t *testing.T) {
 			},
 
 			CreatedAtBlock: "215442702",
-			CreatedAtTime:  UnixTime(1669185229500),
+			CreatedAtTime:  unixtime.Time(1669185229500),
 		},
 	}
 

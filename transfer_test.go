@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -176,7 +178,7 @@ func TestClient_GetTransfers(t *testing.T) {
 					},
 					MarketFee:      0.08,
 					CreatedAtBlock: "138805797",
-					CreatedAtTime:  UnixTime(1630851624500),
+					CreatedAtTime:  unixtime.Time(1630851624500),
 				},
 				Schema: InlineSchema{
 					Name: "component",
@@ -211,7 +213,7 @@ func TestClient_GetTransfers(t *testing.T) {
 						},
 					},
 					CreatedAtBlock: "144015964",
-					CreatedAtTime:  UnixTime(1633460071000),
+					CreatedAtTime:  unixtime.Time(1633460071000),
 				},
 				Template: Template{
 					ID:             "536289",
@@ -228,7 +230,7 @@ func TestClient_GetTransfers(t *testing.T) {
 						"rarity": "Epic",
 					},
 					CreatedAtBlock: "189441618",
-					CreatedAtTime:  UnixTime(1656179852000),
+					CreatedAtTime:  unixtime.Time(1656179852000),
 				},
 				MutableData:       map[string]interface{}{},
 				ImmutableData:     map[string]interface{}{},
@@ -236,13 +238,13 @@ func TestClient_GetTransfers(t *testing.T) {
 				BackedTokens:      []Token{},
 				BurnedByAccount:   "",
 				BurnedAtBlock:     "",
-				BurnedAtTime:      UnixTime(0),
+				BurnedAtTime:      unixtime.Time(0),
 				UpdatedAtBlock:    "217211017",
-				UpdatedAtTime:     UnixTime(1670070209000),
+				UpdatedAtTime:     unixtime.Time(1670070209000),
 				TransferedAtBlock: "217211017",
-				TransferedAtTime:  UnixTime(1670070209000),
+				TransferedAtTime:  unixtime.Time(1670070209000),
 				MintedAtBlock:     "191339821",
-				MintedAtTime:      UnixTime(1657128962500),
+				MintedAtTime:      unixtime.Time(1657128962500),
 				Data: map[string]interface{}{
 					"img":    "QmSho935ezZYpK2jMd6oNxLvyu5uQmEFPKeSnxkijXQjr2",
 					"name":   "Kyanite Resonator",
@@ -254,7 +256,7 @@ func TestClient_GetTransfers(t *testing.T) {
 			},
 		},
 		CreatedAtBlock: "217211017",
-		CreatedAtTime:  UnixTime(1670070209000),
+		CreatedAtTime:  unixtime.Time(1670070209000),
 	}
 
 	client := New(srv.URL)
@@ -264,6 +266,6 @@ func TestClient_GetTransfers(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 200, a.HTTPStatusCode)
 	assert.True(t, a.Success)
-	assert.Equal(t, time.Time(time.Date(2020, time.May, 25, 19, 15, 3, 0, time.UTC)), a.QueryTime.Time())
+	assert.Equal(t, time.Date(2020, time.May, 25, 19, 15, 3, 0, time.UTC), a.QueryTime.Time())
 	assert.Equal(t, []Transfer{expected}, a.Data)
 }

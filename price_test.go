@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -67,7 +69,7 @@ func TestGetSalePrices(t *testing.T) {
 			TokenSymbol:    "WAX",
 			TokenPrecision: 8,
 			TokenContract:  "eosio.token",
-			BlockTime:      UnixTime(1671539853000),
+			BlockTime:      unixtime.Time(1671539853000),
 		},
 		{
 			SaleID:         "101718170",
@@ -78,7 +80,7 @@ func TestGetSalePrices(t *testing.T) {
 			TokenSymbol:    "WAX",
 			TokenPrecision: 8,
 			TokenContract:  "eosio.token",
-			BlockTime:      UnixTime(1671539857000),
+			BlockTime:      unixtime.Time(1671539857000),
 		},
 	}
 
@@ -136,7 +138,7 @@ func TestSalePricesDays(t *testing.T) {
 			TokenSymbol:    "WAX",
 			TokenPrecision: 8,
 			TokenContract:  "eosio.token",
-			Time:           UnixTime(1670587200000),
+			Time:           unixtime.Time(1670587200000),
 		},
 		{
 			Median:         "600000000",
@@ -145,7 +147,7 @@ func TestSalePricesDays(t *testing.T) {
 			TokenSymbol:    "WAX",
 			TokenPrecision: 8,
 			TokenContract:  "eosio.token",
-			Time:           UnixTime(1670155200000),
+			Time:           unixtime.Time(1670155200000),
 		},
 	}
 
@@ -394,7 +396,7 @@ func TestGetPriceInventory(t *testing.T) {
 					"creator_info": "{\"address\":\"\",\"company\":\"\",\"name\":\"\",\"registration_number\":\"\"}",
 				},
 				CreatedAtBlock: "66677714",
-				CreatedAtTime:  UnixTime(1594768100000),
+				CreatedAtTime:  unixtime.Time(1594768100000),
 			},
 			Prices: []PriceAsset{
 				{

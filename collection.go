@@ -1,5 +1,9 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Types
 
 type Collection struct {
@@ -15,8 +19,8 @@ type Collection struct {
 
 	Data map[string]interface{} `json:"data"`
 
-	CreatedAtBlock string   `json:"created_at_block"`
-	CreatedAtTime  UnixTime `json:"created_at_time"`
+	CreatedAtBlock string        `json:"created_at_block"`
+	CreatedAtTime  unixtime.Time `json:"created_at_time"`
 }
 
 type CollectionStats struct {

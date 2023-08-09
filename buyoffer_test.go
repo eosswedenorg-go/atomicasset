@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -30,7 +32,7 @@ var collection Collection = Collection{
 	},
 	MarketFee:      0.05,
 	CreatedAtBlock: "160757701",
-	CreatedAtTime:  UnixTime(1641834018000),
+	CreatedAtTime:  unixtime.Time(1641834018000),
 }
 
 var schema InlineSchema = InlineSchema{
@@ -62,7 +64,7 @@ var schema InlineSchema = InlineSchema{
 		},
 	},
 	CreatedAtBlock: "167835321",
-	CreatedAtTime:  UnixTime(1645374414000),
+	CreatedAtTime:  unixtime.Time(1645374414000),
 }
 
 var template Template = Template{
@@ -79,7 +81,7 @@ var template Template = Template{
 		"rarity": "Rare",
 	},
 	CreatedAtBlock: "167837248",
-	CreatedAtTime:  UnixTime(1645375378000),
+	CreatedAtTime:  unixtime.Time(1645375378000),
 }
 
 func TestGetBuyOffer(t *testing.T) {
@@ -296,13 +298,13 @@ func TestGetBuyOffer(t *testing.T) {
 				BackedTokens:      []Token{},
 				BurnedByAccount:   "",
 				BurnedAtBlock:     "",
-				BurnedAtTime:      UnixTime(0),
+				BurnedAtTime:      unixtime.Time(0),
 				UpdatedAtBlock:    "171265463",
-				UpdatedAtTime:     UnixTime(1647089599500),
+				UpdatedAtTime:     unixtime.Time(1647089599500),
 				TransferedAtBlock: "162290829",
-				TransferedAtTime:  UnixTime(1642600627500),
+				TransferedAtTime:  unixtime.Time(1642600627500),
 				MintedAtBlock:     "155685360",
-				MintedAtTime:      UnixTime(1639297074000),
+				MintedAtTime:      unixtime.Time(1639297074000),
 				Data: map[string]interface{}{
 					"img":    "QmPXzxCQREu5yCC8TKc61T4QcpHnrG6dZvq7GuVyGTmccn",
 					"info":   "This distributor produces GRAIN daily",
@@ -318,9 +320,9 @@ func TestGetBuyOffer(t *testing.T) {
 		Memo:             "You've been offered 117.00 WAX. Click on the confirm button to sell your NFT. This transaction has a 0.000091 WAX fee.",
 		DeclineMemo:      "",
 		UpdatedAtBlock:   "156854333",
-		UpdatedAtTime:    UnixTime(1639882183500),
+		UpdatedAtTime:    unixtime.Time(1639882183500),
 		CreatedAtBlock:   "156667517",
-		CreatedAtTime:    UnixTime(1639788773000),
+		CreatedAtTime:    unixtime.Time(1639788773000),
 		State:            SalesStateCanceled,
 	}
 
@@ -378,7 +380,7 @@ func TestGetBuyOfferLogs(t *testing.T) {
 			Data:           map[string]interface{}{},
 			TxID:           "60fcebaaae9d788ff7c303ad83c9256394b1c76b0487fa7d2ad2c2667c1a3bef",
 			CreatedAtBlock: "156854333",
-			CreatedAtTime:  UnixTime(1639882183500),
+			CreatedAtTime:  unixtime.Time(1639882183500),
 		},
 		{
 			ID:   "31389623810",
@@ -389,7 +391,7 @@ func TestGetBuyOfferLogs(t *testing.T) {
 			},
 			TxID:           "1f0ff70331e08875a704a6e0b4945f4aa579d4e2a765a5b658d550ac584e11c4",
 			CreatedAtBlock: "156667517",
-			CreatedAtTime:  UnixTime(1639788773000),
+			CreatedAtTime:  unixtime.Time(1639788773000),
 		},
 	}
 
@@ -728,13 +730,13 @@ func TestGetBuyOffers(t *testing.T) {
 				BackedTokens:      []Token{},
 				BurnedByAccount:   "",
 				BurnedAtBlock:     "",
-				BurnedAtTime:      UnixTime(0),
+				BurnedAtTime:      unixtime.Time(0),
 				UpdatedAtBlock:    "169238455",
-				UpdatedAtTime:     UnixTime(1646076037500),
+				UpdatedAtTime:     unixtime.Time(1646076037500),
 				TransferedAtBlock: "169238455",
-				TransferedAtTime:  UnixTime(1646076037500),
+				TransferedAtTime:  unixtime.Time(1646076037500),
 				MintedAtBlock:     "169238455",
-				MintedAtTime:      UnixTime(1646076037500),
+				MintedAtTime:      unixtime.Time(1646076037500),
 				Data: map[string]interface{}{
 					"img":    "QmPXzxCQREu5yCC8TKc61T4QcpHnrG6dZvq7GuVyGTmccn",
 					"info":   "This distributor produces GRAIN daily",
@@ -766,7 +768,7 @@ func TestGetBuyOffers(t *testing.T) {
 						"rarity": "Rare",
 					},
 					CreatedAtBlock: "167838382",
-					CreatedAtTime:  UnixTime(1645375945000),
+					CreatedAtTime:  unixtime.Time(1645375945000),
 				},
 				MutableData:       map[string]interface{}{},
 				ImmutableData:     map[string]interface{}{},
@@ -774,13 +776,13 @@ func TestGetBuyOffers(t *testing.T) {
 				BackedTokens:      []Token{},
 				BurnedByAccount:   "",
 				BurnedAtBlock:     "",
-				BurnedAtTime:      UnixTime(0),
+				BurnedAtTime:      unixtime.Time(0),
 				UpdatedAtBlock:    "169238453",
-				UpdatedAtTime:     UnixTime(1646076036500),
+				UpdatedAtTime:     unixtime.Time(1646076036500),
 				TransferedAtBlock: "169238453",
-				TransferedAtTime:  UnixTime(1646076036500),
+				TransferedAtTime:  unixtime.Time(1646076036500),
 				MintedAtBlock:     "169238453",
-				MintedAtTime:      UnixTime(1646076036500),
+				MintedAtTime:      unixtime.Time(1646076036500),
 
 				Data: map[string]interface{}{
 					"img":    "QmdaSvs4q8grUCatmVuwrWTfA1mb1ge4k9vLPkm6UwrhZQ",
@@ -797,9 +799,9 @@ func TestGetBuyOffers(t *testing.T) {
 		Memo:             "memo",
 		DeclineMemo:      "declined",
 		UpdatedAtBlock:   "219983297",
-		UpdatedAtTime:    UnixTime(1671457786000),
+		UpdatedAtTime:    unixtime.Time(1671457786000),
 		CreatedAtBlock:   "219983297",
-		CreatedAtTime:    UnixTime(1671457786000),
+		CreatedAtTime:    unixtime.Time(1671457786000),
 		State:            SalesStateWaiting,
 	}
 

@@ -1,11 +1,15 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Types
 
 type ChainHealth struct {
-	Status    string   `json:"status"`
-	HeadBlock int64    `json:"head_block"`
-	HeadTime  UnixTime `json:"head_time"`
+	Status    string        `json:"status"`
+	HeadBlock int64         `json:"head_block"`
+	HeadTime  unixtime.Time `json:"head_time"`
 }
 
 type RedisHealth struct {

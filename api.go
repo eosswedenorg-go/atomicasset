@@ -1,6 +1,7 @@
 package atomicasset
 
 import (
+	"github.com/eosswedenorg-go/unixtime"
 	null "gopkg.in/guregu/null.v4"
 )
 
@@ -11,6 +12,6 @@ type APIError struct {
 
 type APIResponse struct {
 	HTTPResponse
-	Success   bool     `json:"success"`
-	QueryTime UnixTime `json:"query_time"`
+	Success   bool          `json:"success"`
+	QueryTime unixtime.Time `json:"query_time"`
 }

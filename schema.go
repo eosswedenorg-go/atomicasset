@@ -1,5 +1,9 @@
 package atomicasset
 
+import (
+	"github.com/eosswedenorg-go/unixtime"
+)
+
 // Types
 
 type Schema struct {
@@ -8,14 +12,14 @@ type Schema struct {
 	Format         []SchemaFormat `json:"format"`
 	Collection     Collection     `json:"collection"`
 	CreatedAtBlock string         `json:"created_at_block"`
-	CreatedAtTime  UnixTime       `json:"created_at_time"`
+	CreatedAtTime  unixtime.Time  `json:"created_at_time"`
 }
 
 type InlineSchema struct {
 	Name           string         `json:"schema_name"`
 	Format         []SchemaFormat `json:"format"`
 	CreatedAtBlock string         `json:"created_at_block"`
-	CreatedAtTime  UnixTime       `json:"created_at_time"`
+	CreatedAtTime  unixtime.Time  `json:"created_at_time"`
 }
 
 type SchemaFormat struct {

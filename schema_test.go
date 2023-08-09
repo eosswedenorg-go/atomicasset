@@ -6,6 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eosswedenorg-go/unixtime"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -101,10 +103,10 @@ func TestGetSchemas(t *testing.T) {
 				NotifyAccounts:     []string{"d11dqs2fnh2v", "fg2ng2izgkvl"},
 				MarketFee:          0.06,
 				CreatedAtBlock:     "18683993",
-				CreatedAtTime:      UnixTime(1427545955000),
+				CreatedAtTime:      unixtime.Time(1427545955000),
 			},
 			CreatedAtBlock: "18684000",
-			CreatedAtTime:  UnixTime(1440686620500),
+			CreatedAtTime:  unixtime.Time(1440686620500),
 		},
 	}
 
